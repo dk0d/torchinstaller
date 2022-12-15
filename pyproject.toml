@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "torchinstaller"
-version = "0.2.6"
-description = ""
+version = "0.2.8"
+description = "Simple utility to install pytorch, pytorch-geometric and pytorch-lightning. Detects CUDA version automatically."
 authors = ["Daniel Capecci"]
+repository="https://github.com/dk0d/torchinstaller.git"
 readme = "README.md"
 
 [tool.poetry.scripts]
