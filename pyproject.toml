@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "torchinstaller"
+version = "0.2.6"
+description = ""
+authors = ["Daniel Capecci"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+torchinstall = 'torchinstaller.main:main'
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
