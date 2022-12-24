@@ -4,31 +4,37 @@ import subprocess
 import re
 
 TORCH_COMMANDS = {
-    "1.13.0": {
+    "1.13.1": {
         "11.6": {"torch": None, "torchvision": None, "torchaudio": None, "url": "https://download.pytorch.org/whl/cu116"},
-        # "11.6": {"torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116"},
         "11.7": {"torch": None, "torchvision": None, "torchaudio": None, "url": None},
-        # "cpu": "torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu",
         "cpu": {"torch": None, "torchvision": None, "torchaudio": None, "url": "https://download.pytorch.org/whl/cpu"},
         "macOS": {"torch": None, "torchvision": None, "torchaudio": None, "url": None}
     },
     "1.12.1": {
-        # "10.2": "torch==1.12.1+cu102 torchvision==0.13.1+cu102 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu102",
         "10.2": {"torch": "1.12.1+cu102", "torchvision": "0.13.1+cu102", "torchaudio": "0.12.1", "url": "https://download.pytorch.org/whl/cu102"},
-        # "11.3": "torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113",
         "11.3": {"torch": "1.12.1+cu113", "torchvision": "0.13.1+cu113", "torchaudio": "0.12.1", "url": "https://download.pytorch.org/whl/cu113"},
-        # "11.6": "torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116",
         "11.6": {"torch": "1.12.1+cu116", "torchvision": "0.13.1+cu116", "torchaudio": "0.12.1", "url": "https://download.pytorch.org/whl/cu116"},
-        # "cpu": "torch==1.12.1+cpu torchvision==0.13.1+cpu torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cpu",
         "cpu": {"torch": "1.12.1+cpu", "torchvision": "0.13.1+cpu", "torchaudio": "0.12.1", "url": "https://download.pytorch.org/whl/cpu"},
-        # "macOS": "torch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1"
         "macOS": {"torch": "1.12.1", "torchvision": "0.13.1", "torchaudio": "0.12.1", "url": None}
+    },
+    "1.12.0": {
+        "10.2": {"torch": "1.12.0+cu102", "torchvision": "0.13.0+cu102", "torchaudio": "0.12.0", "url": "https://download.pytorch.org/whl/cu102"},
+        "11.3": {"torch": "1.12.0+cu113", "torchvision": "0.13.0+cu113", "torchaudio": "0.12.0", "url": "https://download.pytorch.org/whl/cu113"},
+        "11.6": {"torch": "1.12.0+cu116", "torchvision": "0.13.0+cu116", "torchaudio": "0.12.0", "url": "https://download.pytorch.org/whl/cu116"},
+        "cpu": {"torch": "1.12.0+cpu", "torchvision": "0.13.0+cpu", "torchaudio": "0.12.0", "url": "https://download.pytorch.org/whl/cpu"},
+        "macOS": {"torch": "1.12.0", "torchvision": "0.13.0", "torchaudio": "0.12.0", "url": None}
+    },
+    "1.11.0": {
+        "10.2": {"torch": "1.11.0+cu102", "torchvision": "0.12.0+cu102", "torchaudio": "0.11.0", "url": "https://download.pytorch.org/whl/cu102"},
+        "11.3": {"torch": "1.11.0+cu113", "torchvision": "0.12.0+cu113", "torchaudio": "0.11.0", "url": "https://download.pytorch.org/whl/cu113"},
+        "cpu": {"torch": "1.11.0+cpu", "torchvision": "0.12.0+cpu", "torchaudio": "0.11.0", "url": "https://download.pytorch.org/whl/cpu"},
+        "macOS": {"torch": "1.11.0", "torchvision": "0.12.0", "torchaudio": "0.11.0", "url": None}
     },
 }
 
 
 PYG_COMMANDS = {
-    "1.12.1": {
+    "1.12.*": {
         "10.2": {
             "pyg-lib": None, "torch-scatter": None, "torch-sparse": None, "torch-cluster": None, "torch-spline-conv": None, "torch-geometric": None,
             "url": "https://data.pyg.org/whl/torch-1.12.0+cu102.html"},
@@ -45,7 +51,7 @@ PYG_COMMANDS = {
             "url": "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
         }
     },
-    "1.13.0": {
+    "1.13.*": {
         "11.6": {
             "pyg-lib": None, "torch-scatter": None, "torch-sparse": None, "torch-cluster": None, "torch-spline-conv": None, "torch-geometric": None,
             "url": "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
@@ -101,6 +107,14 @@ def getCudaVersion():
         except:
             pass
     return 'cpu'
+
+
+def pythonVersion(withMicro=True):
+    import sys
+    version = f'{sys.version_info.major}.{sys.version_info.minor}'
+    if withMicro:
+        return f'{version}.{sys.version_info.micro}'
+    return version
 
 
 def getPlatform():
