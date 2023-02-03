@@ -16,10 +16,10 @@ pip install torchinstaller
 
 ```bash
 $ torchinstall -h
-usage: torchinstall [-h] [--poetry] [--dryrun] [--pyg] [--lightning]
+usage: torchinstall [-h] [--poetry] [--dryrun] [--pyg] [--cuda {10.2,11.3,11.6,11.7}] [--lightning]
 
 optional arguments:
-  -h, --help       show this help message and exit
+  -h, --help            show this help message and exit
   --poetry, -p          Uses poetry for install. Creates a torch source and adds torch to pyproject.toml
   --dryrun, -d          just prints the commands that would be run
   --pyg, -pyg           Flag to also install pytorch-geometric
