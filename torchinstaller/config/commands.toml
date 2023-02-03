@@ -1,0 +1,137 @@
+# ************************************************************
+# Section Format
+# ************************************************************
+# Required install keys specified by the `keys_`
+# package level array, interpreted as `None` when not present
+# 
+# [package.commands.{pytorch version}.{cuda version}]
+# key = value
+# ************************************************************
+
+[torch]
+keys_ = ["torch", "torchvision", "torchaudio", "url"]
+
+[torch.commands."1.13.1"."11.6"]
+url = "https://download.pytorch.org/whl/cu116"
+
+[torch.commands."1.13.1"."11.7"]
+# None
+
+[torch.commands."1.13.1".cpu]
+url = "https://download.pytorch.org/whl/cpu"
+
+[torch.commands."1.13.1".macOS]
+# None
+
+[torch.commands."1.12.1"."10.2"]
+torch = "1.12.1+cu102"
+torchvision = "0.13.1+cu102"
+torchaudio = "0.12.1"
+url = "https://download.pytorch.org/whl/cu102"
+
+[torch.commands."1.12.1"."11.3"]
+torch = "1.12.1+cu113"
+torchvision = "0.13.1+cu113"
+torchaudio = "0.12.1"
+url = "https://download.pytorch.org/whl/cu113"
+
+[torch.commands."1.12.1"."11.6"]
+torch = "1.12.1+cu116"
+torchvision = "0.13.1+cu116"
+torchaudio = "0.12.1"
+url = "https://download.pytorch.org/whl/cu116"
+
+[torch.commands."1.12.1".cpu]
+torch = "1.12.1+cpu"
+torchvision = "0.13.1+cpu"
+torchaudio = "0.12.1"
+url = "https://download.pytorch.org/whl/cpu"
+
+[torch.commands."1.12.1".macOS]
+torch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+
+[torch.commands."1.12.0"."10.2"]
+torch = "1.12.0+cu102"
+torchvision = "0.13.0+cu102"
+torchaudio = "0.12.0"
+url = "https://download.pytorch.org/whl/cu102"
+
+[torch.commands."1.12.0"."11.3"]
+torch = "1.12.0+cu113"
+torchvision = "0.13.0+cu113"
+torchaudio = "0.12.0"
+url = "https://download.pytorch.org/whl/cu113"
+
+[torch.commands."1.12.0"."11.6"]
+torch = "1.12.0+cu116"
+torchvision = "0.13.0+cu116"
+torchaudio = "0.12.0"
+url = "https://download.pytorch.org/whl/cu116"
+
+[torch.commands."1.12.0".cpu]
+torch = "1.12.0+cpu"
+torchvision = "0.13.0+cpu"
+torchaudio = "0.12.0"
+url = "https://download.pytorch.org/whl/cpu"
+
+[torch.commands."1.12.0".macOS]
+torch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+
+[torch.commands."1.11.0"."10.2"]
+torch = "1.11.0+cu102"
+torchvision = "0.12.0+cu102"
+torchaudio = "0.11.0"
+url = "https://download.pytorch.org/whl/cu102"
+
+[torch.commands."1.11.0"."11.3"]
+torch = "1.11.0+cu113"
+torchvision = "0.12.0+cu113"
+torchaudio = "0.11.0"
+url = "https://download.pytorch.org/whl/cu113"
+
+[torch.commands."1.11.0".cpu]
+torch = "1.11.0+cpu"
+torchvision = "0.12.0+cpu"
+torchaudio = "0.11.0"
+url = "https://download.pytorch.org/whl/cpu"
+
+[torch.commands."1.11.0".macOS]
+torch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
+
+[pygeo]
+keys_ = [
+    "pyg-lib",
+    "torch-scatter",
+    "torch-sparse",
+    "torch-cluster",
+    "torch-spline-conv",
+    "torch-geometric",
+    "url",
+]
+
+[pygeo.commands."1.12.*"."10.2"]
+url = "https://data.pyg.org/whl/torch-1.12.0+cu102.html"
+
+[pygeo.commands."1.12.*"."11.3"]
+url = "https://data.pyg.org/whl/torch-1.12.0+cu113.html"
+
+[pygeo.commands."1.12.*"."11.6"]
+url = "https://data.pyg.org/whl/torch-1.12.0+cu116.html"
+
+[pygeo.commands."1.12.*".cpu]
+url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
+
+[pygeo.commands."1.13.*"."11.6"]
+url = "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
+
+[pygeo.commands."1.13.*"."11.7"]
+url = "https://data.pyg.org/whl/torch-1.13.0+cu117.html"
+
+[pygeo.commands."1.13.*".cpu]
+url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"

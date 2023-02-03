@@ -5,12 +5,16 @@ description = "Simple utility to install pytorch, pytorch-geometric and pytorch-
 authors = ["Daniel Capecci"]
 repository="https://github.com/dk0d/torchinstaller.git"
 readme = "README.md"
+include = [
+    {path = "torchinstaller/config/commands.toml"}
+]
 
 [tool.poetry.scripts]
 torchinstall = 'torchinstaller.main:main'
 
 [tool.poetry.dependencies]
 python = "^3.9"
+tomlkit = "^0.11.6"
 
 [build-system]
 requires = ["poetry-core"]
