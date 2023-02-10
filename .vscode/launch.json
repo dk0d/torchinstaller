@@ -10,9 +10,10 @@
             "request": "launch",
             "module": "torchinstaller",
             "console": "integratedTerminal",
-            "args": [ 
+            "args": [
                 "-d",
-                "-c", "11.6",
+                "-c",
+                "11.6",
                 // "-pyg", "-p"
             ],
             // "args": [ "-d" ],

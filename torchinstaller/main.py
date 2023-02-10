@@ -72,54 +72,53 @@ def main():
     if cudaVersion in ['macOS', 'cpu']:
         print('CPU ONLY')
 
-    # try:
+    try:
 
-    command = torchCudaLookup[cudaVersion][-1][1]
-    
-    try: 
-        url = command['url']
-    except:
-        url = None
-    
-    if args.poetry:
-        if url is not None:
-            run(['poetry', 'source', 'add', 'torch',
-                command['url']], args.dryrun)
+        command = torchCudaLookup[cudaVersion][-1][1]
 
-        commandArgs = ['poetry', 'add']
-        commandArgs.extend(commandToStrings(
-            config['torch']['keys_'], command))
-        if url is not None:
-            commandArgs.extend(['--source', 'torch'])
+        try:
+            url = command['url']
+        except:
+            url = None
 
-        run(commandArgs, args.dryrun)
+        if args.poetry:
+            if url is not None:
+                run(['poetry', 'source', 'add', 'torch',
+                    command['url']], args.dryrun)
 
-        if args.lightning:
-            run(['poetry', 'add', 'pytorch-lightning'], args.dryrun)
-    else:
-        commandArgs = ['pip', 'install']
-        commandArgs.extend(commandToStrings(
-            config['torch']['keys_'], command))
+            commandArgs = ['poetry', 'add']
+            commandArgs.extend(commandToStrings(
+                config['torch']['keys_'], command))
+            if url is not None:
+                commandArgs.extend(['--source', 'torch'])
 
-        if url is not None:
-            commandArgs.extend(['--extra-index-url', command['url']])
+            run(commandArgs, args.dryrun)
 
-        run(commandArgs, args.dryrun)
+            if args.lightning:
+                run(['poetry', 'add', 'pytorch-lightning'], args.dryrun)
+        else:
+            commandArgs = ['pip', 'install']
+            commandArgs.extend(commandToStrings(
+                config['torch']['keys_'], command))
 
-        if args.lightning:
-            run(['pip', 'install', 'pytorch-lightning'], args.dryrun)
+            if url is not None:
+                commandArgs.extend(['--extra-index-url', command['url']])
 
-        if args.pyg:
-            pygCommand = pygLookup[cudaVersion][-1][1]
-            cArgs = ['pip', 'install'] + \
-                commandToStrings(config['pygeo']['keys_'], pygCommand)
-            if pygCommand['url'] is not None:
-                cArgs.extend(['-f', pygCommand['url']])
-            run(cArgs, args.dryrun)
+            run(commandArgs, args.dryrun)
 
-    # except Exception as err:
-        # print('Install failed')
-        # print(f'{err}')
+            if args.lightning:
+                run(['pip', 'install', 'pytorch-lightning'], args.dryrun)
+
+            if args.pyg:
+                pygCommand = pygLookup[cudaVersion][-1][1]
+                cArgs = ['pip', 'install'] + \
+                    commandToStrings(config['pygeo']['keys_'], pygCommand)
+                if pygCommand['url'] is not None:
+                    cArgs.extend(['-f', pygCommand['url']])
+                run(cArgs, args.dryrun)
+    except Exception as err:
+        print('Install failed')
+        print(f'{err}')
 
 
 if __name__ == "__main__":
