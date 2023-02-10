@@ -56,10 +56,10 @@ def getCudaVersion(cudaLookup):
         output = str(result.stdout, encoding='utf-8')
         version = re.search(r'CUDA\s+Version:\s+([\d\.]+)\s+', output)
         try:
-            return latestValidVersion(version.group(1), cudaLookup)
+            return latestValidVersion(version.group(1), cudaLookup), version.group(1)
         except:
             pass
-    return 'cpu'
+    return 'cpu', None
 
 
 def pythonVersion(withMicro=True):

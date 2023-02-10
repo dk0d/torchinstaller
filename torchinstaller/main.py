@@ -56,12 +56,15 @@ def main():
 
     pyVersion = pythonVersion()
 
+    cudaVersion, detected = getCudaVersion(torchCudaLookup)
+
     if args.cuda is None:
-        cudaVersion = getCudaVersion(torchCudaLookup)
-        print(f'Found CUDA: {cudaVersion}')
+        cudaVersion, detected = getCudaVersion(torchCudaLookup)
+        print(f'System CUDA: {detected}\nUsing CUDA: {cudaVersion}')
     else:
         cudaVersion = args.cuda
         print(f'User specified CUDA: {cudaVersion}')
+        print(f'System CUDA: {detected}\nUsing CUDA: {cudaVersion}')
 
     if getPlatform() == 'darwin':
         cudaVersion == 'macOS'
@@ -69,48 +72,54 @@ def main():
     if cudaVersion in ['macOS', 'cpu']:
         print('CPU ONLY')
 
-    try:
-        command = torchCudaLookup[cudaVersion][-1][1]
+    # try:
+
+    command = torchCudaLookup[cudaVersion][-1][1]
+    
+    try: 
         url = command['url']
-        if args.poetry:
-            if url is not None:
-                run(['poetry', 'source', 'add', 'torch',
-                    command['url']], args.dryrun)
+    except:
+        url = None
+    
+    if args.poetry:
+        if url is not None:
+            run(['poetry', 'source', 'add', 'torch',
+                command['url']], args.dryrun)
 
-            commandArgs = ['poetry', 'add']
-            commandArgs.extend(commandToStrings(
-                config['torch']['keys_'], command))
-            if url is not None:
-                commandArgs.extend(['--source', 'torch'])
+        commandArgs = ['poetry', 'add']
+        commandArgs.extend(commandToStrings(
+            config['torch']['keys_'], command))
+        if url is not None:
+            commandArgs.extend(['--source', 'torch'])
 
-            run(commandArgs, args.dryrun)
+        run(commandArgs, args.dryrun)
 
-            if args.lightning:
-                run(['poetry', 'add', 'pytorch-lightning'], args.dryrun)
-        else:
-            commandArgs = ['pip', 'install']
-            commandArgs.extend(commandToStrings(
-                config['torch']['keys_'], command))
+        if args.lightning:
+            run(['poetry', 'add', 'pytorch-lightning'], args.dryrun)
+    else:
+        commandArgs = ['pip', 'install']
+        commandArgs.extend(commandToStrings(
+            config['torch']['keys_'], command))
 
-            if command['url'] is not None:
-                commandArgs.extend(['--extra-index-url', command['url']])
+        if url is not None:
+            commandArgs.extend(['--extra-index-url', command['url']])
 
-            run(commandArgs, args.dryrun)
+        run(commandArgs, args.dryrun)
 
-            if args.lightning:
-                run(['pip', 'install', 'pytorch-lightning'], args.dryrun)
+        if args.lightning:
+            run(['pip', 'install', 'pytorch-lightning'], args.dryrun)
 
-            if args.pyg:
-                pygCommand = pygLookup[cudaVersion][-1][1]
-                cArgs = ['pip', 'install'] + \
-                    commandToStrings(config['pygeo']['keys_'], pygCommand)
-                if pygCommand['url'] is not None:
-                    cArgs.extend(['-f', pygCommand['url']])
-                run(cArgs, args.dryrun)
+        if args.pyg:
+            pygCommand = pygLookup[cudaVersion][-1][1]
+            cArgs = ['pip', 'install'] + \
+                commandToStrings(config['pygeo']['keys_'], pygCommand)
+            if pygCommand['url'] is not None:
+                cArgs.extend(['-f', pygCommand['url']])
+            run(cArgs, args.dryrun)
 
-    except Exception as err:
-        print('Install failed')
-        print(f'{err}')
+    # except Exception as err:
+        # print('Install failed')
+        # print(f'{err}')
 
 
 if __name__ == "__main__":
