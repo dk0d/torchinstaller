@@ -11,10 +11,12 @@
             "module": "torchinstaller",
             "console": "integratedTerminal",
             "args": [
-                "-d",
                 "-c",
                 "11.6",
-                // "-pyg", "-p"
+                "-l",
+                "-pyg",
+                "-u", "pip"
+                // "-p"
             ],
             // "args": [ "-d" ],
             "justMyCode": true

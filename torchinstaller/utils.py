@@ -7,6 +7,8 @@ import re
 def commandToLookup(commands):
     lookup = {}
     for pv, v in commands.items():
+        if pv == 'keys_':
+            continue
         for cv, command in v.items():
             if cv not in lookup.keys():
                 lookup[cv] = []
@@ -81,16 +83,26 @@ def getPlatform():
     #     # Windows...
 
 
-def commandToStrings(keys, command):
-    kvs = {k: command.get(k, None) for k in keys if k != 'url'}
-    return [
-        f'{k}' if v is None else f'{k}=={v}'
-        for k, v in kvs.items()
-    ]
+def commandToStrings(command, skip=['url']):
+    strings = []
+    for k, v in command.items():
+        if k in skip:
+            continue
 
+        if v is None or len(v) == 0:
+            strings.append(f'{k}')
+        elif k == 'channels':
+            strings.append(f"{v}")
+        else:
+            strings.append(f'{k}={v}')
+    return strings
+    # return [
+    #     f'{k}' if v is None or len(v) == 0 else f'{k}={v}' 
+    #     for k, v in command.items() if k not in skip
+    # ]
 
-def run(args, dry):
-    if dry:
+def run(args, install):
+    if not install:
         print(f"[Dry Run]\n{' '.join(args)}")
     else:
         print(f'[Running]\n{" ".join(args)}\n')
@@ -100,7 +112,10 @@ def run(args, dry):
 def cudaVersions(config):
     versions = list(set(
         ck
-        for k, v in config['torch']['commands'].items()
+        for command in config['commands']
+        if command in config['torch']
+        for k, v in config['torch'][command].items()
+        if k not in ['keys_']
         for ck, _ in v.items()
         if ck not in ['cpu', 'macOS']
     ))

@@ -4,134 +4,294 @@
 # Required install keys specified by the `keys_`
 # package level array, interpreted as `None` when not present
 # 
-# [package.commands.{pytorch version}.{cuda version}]
+# [package.{command}.{pytorch version}.{cuda version}]
 # key = value
 # ************************************************************
 
-[torch]
-keys_ = ["torch", "torchvision", "torchaudio", "url"]
+commands = ['pip', 'mamba', 'conda', 'poetry']
 
-[torch.commands."1.13.1"."11.6"]
+[torch.pip]
+keys_ = [
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "url",
+]
+
+ # TORCH - CONDA
+[torch.conda."1.13.1".cpu]
+pytorch = ""
+torchvision = ""
+torchaudio = ""
+channels="cpuonly -c pytorch"
+
+[torch.conda."1.13.1"."11.7"]
+pytorch = ""
+torchvision = ""
+torchaudio = ""
+pytorch-cuda="11.7"
+channels = '-c pytorch -c nvidia'
+
+[torch.conda."1.13.1"."11.6"]
+pytorch = ""
+torchvision = ""
+torchaudio = ""
+pytorch-cuda="11.6"
+channels = '-c pytorch -c nvidia'
+
+[torch.conda."1.12.1"."10.2"]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit='10.2'
+channels = "-c pytorch"
+
+[torch.conda."1.12.1"."11.3"]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit='11.3'
+channels = "-c pytorch"
+
+[torch.conda."1.12.1"."11.6"]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit='11.6'
+channels = "-c pytorch -c conda-forge"
+
+[torch.conda."1.12.1".cpu]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+channels = "cpuonly -c pytorch"
+
+
+[torch.conda."1.12.0"."10.2"]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit='10.2'
+channels = "-c pytorch"
+
+[torch.conda."1.12.0"."11.3"]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit='11.3'
+channels = "-c pytorch"
+
+[torch.conda."1.12.0"."11.6"]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit='11.6'
+channels = "-c pytorch -c conda-forge"
+
+[torch.conda."1.12.0".cpu]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+channels = "cpuonly -c pytorch"
+
+
+# TORCH - PIP
+[torch.pip."1.13.1"."11.6"]
+torch = ""
+torchvision = ""
+torchaudio = ""
 url = "https://download.pytorch.org/whl/cu116"
 
-[torch.commands."1.13.1"."11.7"]
+[torch.pip."1.13.1"."11.7"]
+torch = ""
+torchvision = ""
+torchaudio = ""
 # None
 
-[torch.commands."1.13.1".cpu]
+[torch.pip."1.13.1".cpu]
+torch = ""
+torchvision = ""
+torchaudio = ""
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.commands."1.13.1".macOS]
+[torch.pip."1.13.1".macOS]
+torch = ""
+torchvision = ""
+torchaudio = ""
 # None
 
-[torch.commands."1.12.1"."10.2"]
+[torch.pip."1.12.1"."10.2"]
 torch = "1.12.1+cu102"
 torchvision = "0.13.1+cu102"
 torchaudio = "0.12.1"
 url = "https://download.pytorch.org/whl/cu102"
 
-[torch.commands."1.12.1"."11.3"]
+[torch.pip."1.12.1"."11.3"]
 torch = "1.12.1+cu113"
 torchvision = "0.13.1+cu113"
 torchaudio = "0.12.1"
 url = "https://download.pytorch.org/whl/cu113"
 
-[torch.commands."1.12.1"."11.6"]
+[torch.pip."1.12.1"."11.6"]
 torch = "1.12.1+cu116"
 torchvision = "0.13.1+cu116"
 torchaudio = "0.12.1"
 url = "https://download.pytorch.org/whl/cu116"
 
-[torch.commands."1.12.1".cpu]
+[torch.pip."1.12.1".cpu]
 torch = "1.12.1+cpu"
 torchvision = "0.13.1+cpu"
 torchaudio = "0.12.1"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.commands."1.12.1".macOS]
+[torch.pip."1.12.1".macOS]
 torch = "1.12.1"
 torchvision = "0.13.1"
 torchaudio = "0.12.1"
 
-[torch.commands."1.12.0"."10.2"]
+[torch.pip."1.12.0"."10.2"]
 torch = "1.12.0+cu102"
 torchvision = "0.13.0+cu102"
 torchaudio = "0.12.0"
 url = "https://download.pytorch.org/whl/cu102"
 
-[torch.commands."1.12.0"."11.3"]
+[torch.pip."1.12.0"."11.3"]
 torch = "1.12.0+cu113"
 torchvision = "0.13.0+cu113"
 torchaudio = "0.12.0"
 url = "https://download.pytorch.org/whl/cu113"
 
-[torch.commands."1.12.0"."11.6"]
+[torch.pip."1.12.0"."11.6"]
 torch = "1.12.0+cu116"
 torchvision = "0.13.0+cu116"
 torchaudio = "0.12.0"
 url = "https://download.pytorch.org/whl/cu116"
 
-[torch.commands."1.12.0".cpu]
+[torch.pip."1.12.0".cpu]
 torch = "1.12.0+cpu"
 torchvision = "0.13.0+cpu"
 torchaudio = "0.12.0"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.commands."1.12.0".macOS]
+[torch.pip."1.12.0".macOS]
 torch = "1.12.0"
 torchvision = "0.13.0"
 torchaudio = "0.12.0"
 
-[torch.commands."1.11.0"."10.2"]
+[torch.pip."1.11.0"."10.2"]
 torch = "1.11.0+cu102"
 torchvision = "0.12.0+cu102"
 torchaudio = "0.11.0"
 url = "https://download.pytorch.org/whl/cu102"
 
-[torch.commands."1.11.0"."11.3"]
+[torch.pip."1.11.0"."11.3"]
 torch = "1.11.0+cu113"
 torchvision = "0.12.0+cu113"
 torchaudio = "0.11.0"
 url = "https://download.pytorch.org/whl/cu113"
 
-[torch.commands."1.11.0".cpu]
+[torch.pip."1.11.0".cpu]
 torch = "1.11.0+cpu"
 torchvision = "0.12.0+cpu"
 torchaudio = "0.11.0"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.commands."1.11.0".macOS]
+[torch.pip."1.11.0".macOS]
 torch = "1.11.0"
 torchvision = "0.12.0"
 torchaudio = "0.11.0"
 
-[pygeo]
-keys_ = [
-    "pyg-lib",
-    "torch-scatter",
-    "torch-sparse",
-    "torch-cluster",
-    "torch-spline-conv",
-    "torch-geometric",
-    "url",
-]
 
-[pygeo.commands."1.12.*"."10.2"]
+
+# Pytorch Geometric - pip
+
+[pygeo.pip."1.12.*"."10.2"]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.12.0+cu102.html"
 
-[pygeo.commands."1.12.*"."11.3"]
+[pygeo.pip."1.12.*"."11.3"]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.12.0+cu113.html"
 
-[pygeo.commands."1.12.*"."11.6"]
+[pygeo.pip."1.12.*"."11.6"]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.12.0+cu116.html"
 
-[pygeo.commands."1.12.*".cpu]
+[pygeo.pip."1.12.*".cpu]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
 
-[pygeo.commands."1.13.*"."11.6"]
+[pygeo.pip."1.13.*"."11.6"]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
 
-[pygeo.commands."1.13.*"."11.7"]
+[pygeo.pip."1.13.*"."11.7"]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.13.0+cu117.html"
 
-[pygeo.commands."1.13.*".cpu]
+[pygeo.pip."1.13.*".cpu]
+pyg-lib = ""
+torch-scatter = ""
+torch-sparse = ""
+torch-cluster = ""
+torch-spline-conv = ""
+torch-geometric = ""
 url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
+
+[pygeo.conda."1.12.*"."10.2"]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.12.*"."11.3"]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.12.*"."11.6"]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.12.*".cpu]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.13.*"."11.6"]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.13.*"."11.7"]
+pyg = ""
+channels = '-c pyg'
+
+[pygeo.conda."1.13.*".cpu]
+pyg = ""
+channels = '-c pyg'
