@@ -1,6 +1,7 @@
 # PyTorch Install Helper
 
-Super basic helper to install pytorch stuff without having to check cuda versions and go to websites for the installer URLs.
+Super simple helper to install pytorch stuff without having to check cuda versions and go to websites for the installer URLs.
+Installs based on requested or detected CUDA version, doesn't check python versions.
 
 > _Only Linux and macOS Supported_
 
@@ -16,16 +17,17 @@ pip install torchinstaller
 
 ```bash
 $ torchinstall -h
-usage: torchinstall [-h] [--poetry] [--dryrun] [--pyg] [--cuda {10.2,11.3,11.6,11.7}] [--lightning]
+usage: torchinstall [-h] [--pyg] [--cuda {10.2,11.3,11.6,11.7}] [--lightning] [--use {pip,conda,mamba,poetry}] [-install]
 
 optional arguments:
   -h, --help            show this help message and exit
-  --poetry, -p          Uses poetry for install. Creates a torch source and adds torch to pyproject.toml
-  --dryrun, -d          just prints the commands that would be run
   --pyg, -pyg           Flag to also install pytorch-geometric
   --cuda {10.2,11.3,11.6,11.7}, -c {10.2,11.3,11.6,11.7}
                         Manually specify cuda version instead of auto-detect (useful for cluster installations).
   --lightning, -l       Flag to also install pytorch-lightning
+  --use {pip,conda,mamba,poetry}, -use {pip,conda,mamba,poetry}
+                        set command to install with
+  -install, -i          Run installation (default is to dry run commands)
 ```
 
 > Note: poetry support is a work in-progress and is unstable
