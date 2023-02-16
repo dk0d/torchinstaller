@@ -88,13 +88,12 @@ def commandToStrings(command, skip=['url']):
     for k, v in command.items():
         if k in skip:
             continue
-
         if v is None or len(v) == 0:
             strings.append(f'{k}')
         elif k == 'channels':
             strings.append(f"{v}")
         else:
-            strings.append(f'{k}={v}')
+            strings.append(f'{k}=={v}')
     return strings
     # return [
     #     f'{k}' if v is None or len(v) == 0 else f'{k}={v}' 
