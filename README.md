@@ -36,7 +36,7 @@ options:
   -install, -i          Run installation (default is to dry run commands)
 ```
 
-> Note: pytorch-geometric can be problematic to install.  Install from source has been added to facilitate installation, but referring to their documentation may be the only way to address any errors in installation if they occur during installation.
+> Note: pytorch-geometric can be problematic to install.  Installing from source has been added to facilitate installation, but referring to their documentation may be the only way to address errors if they occur.
 
 > Note: poetry support is a work in-progress and is unstable
 
