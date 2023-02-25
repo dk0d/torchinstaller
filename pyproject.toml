@@ -1,21 +1,26 @@
-[tool.poetry]
+[project]
 name = "torchinstaller"
-version = "0.3.3"
+version = "0.4.1"
 description = "Simple utility to install pytorch, pytorch-geometric and pytorch-lightning. Detects CUDA version automatically."
-authors = ["Daniel Capecci <7775585+dk0d@users.noreply.github.com>"]
-repository="https://github.com/dk0d/torchinstaller.git"
-readme = "README.md"
-include = [
-    {path = "torchinstaller/config/commands.toml"}
+authors = [
+    { name = "Daniel Capecci", email = "7775585+dk0d@users.noreply.github.com" },
 ]
+dependencies = ["tomlkit<1.0.0,>=0.11.6"]
+requires-python = ">=3.9,<4.0"
+readme = "README.md"
+license = { text = "MIT" }
 
-[tool.poetry.scripts]
-torchinstall = 'torchinstaller.main:main'
+[project.urls]
+repository = "https://github.com/dk0d/torchinstaller.git"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-tomlkit = "^0.11.6"
+[project.scripts]
+torchinstall = "torchinstaller.main:main"
+
+[tool.pdm]
+
+[[tool.pdm.build.includes]]
+path = "torchinstaller/config/commands.toml"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

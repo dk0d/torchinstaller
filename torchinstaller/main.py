@@ -26,12 +26,28 @@ def main():
     #     '--install', '-i',
     #     help='run install commands'
     # )
+
+    parser.add_argument(
+        "--pytorch",
+        "-pt",
+        help="Flag to install pytorch",
+        default=False,
+        action='store_true'
+    )
     parser.add_argument(
         "--pyg",
         "-pyg",
-        help="Flag to also install pytorch-geometric",
+        help="Flag to install pytorch-geometric",
         action="store_true",
         default=False,
+    )
+    parser.add_argument(
+        '--pyg-lib-source',
+        '-pyg-src',
+        help="Pytorch Geometric doesn't support wheels for M1/M2 macs, they recomment installing from source",
+        default=False,
+        action='store_true',
+        dest='pyg_lib_source'
     )
     parser.add_argument(
         "--cuda",
@@ -45,7 +61,7 @@ def main():
         "--lightning",
         "-l",
         action="store_true",
-        help="Flag to also install pytorch-lightning",
+        help="Flag to install pytorch-lightning",
         default=False,
     )
     parser.add_argument(
@@ -106,26 +122,29 @@ def main():
     use_poetry = args.use == "poetry"
 
     if use_poetry:
-        if url is not None:
-            run(["poetry", "source", "add", "torch", command["url"]], args.install)
+        if args.pytorch:
+            if url is not None:
+                run(["poetry", "source", "add", "torch", command["url"]], args.install)
 
-        commandArgs = ["poetry", "add"]
-        commandArgs.extend(commandToStrings(command))
-        if url is not None:
-            commandArgs.extend(["--source", "torch"])
+            commandArgs = ["poetry", "add"]
+            commandArgs.extend(commandToStrings(command))
 
-        run(commandArgs, args.install)
+            if url is not None:
+                commandArgs.extend(["--source", "torch"])
+
+            run(commandArgs, args.install)
 
         if args.lightning:
             run(["poetry", "add", "pytorch-lightning"], args.install)
     else:
-        commandArgs = [installer, "install"]
-        commandArgs.extend(commandToStrings(command))
+        if args.pytorch:
+            commandArgs = [installer, "install"]
+            commandArgs.extend(commandToStrings(command))
 
-        if url is not None and installer == "pip":
-            commandArgs.extend(["--extra-index-url", command["url"]])
+            if url is not None and installer == "pip":
+                commandArgs.extend(["--extra-index-url", command["url"]])
 
-        run(commandArgs, args.install)
+            run(commandArgs, args.install)
 
         if args.lightning:
             lightning = [installer, "install", "pytorch-lightning"]
@@ -138,6 +157,14 @@ def main():
         if args.pyg:
             pygCommand = pygLookup[cudaVersion][-1][1]
             cArgs = [installer, "install"]
+
+            if args.pyg_lib_source:
+                cArgs.append("git+https://github.com/pyg-team/pyg-lib.git")
+                run(cArgs, args.install)
+                cArgs = cArgs[:-1]
+                pygCommand.pop('pyg_lib')
+                pygCommand.pop('url')
+
             cArgs.extend(commandToStrings(pygCommand))
 
             if "url" in pygCommand:
