@@ -39,7 +39,7 @@ def loadConfig(path: Path):
 
 
 def latestValidVersion(cudaVersion, cudaLookup):
-    goodVersions = list(filter(lambda x: x <= cudaVersion, cudaLookup.keys()))
+    goodVersions = list(filter(lambda x: x >= cudaVersion, cudaLookup.keys()))
     goodVersions.sort()
     return goodVersions[-1]
 
