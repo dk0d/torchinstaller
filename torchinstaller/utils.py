@@ -38,10 +38,10 @@ def loadConfig(path: Path):
         exit(1)
 
 
-def latestValidVersion(cudaVersion, cudaLookup):
+def closestLatestVersion(cudaVersion, cudaLookup):
     goodVersions = list(filter(lambda x: x >= cudaVersion, cudaLookup.keys()))
     goodVersions.sort()
-    return goodVersions[-1]
+    return goodVersions[0]
 
 
 def hasCommand(name):
@@ -58,7 +58,7 @@ def getCudaVersion(cudaLookup):
         output = str(result.stdout, encoding='utf-8')
         version = re.search(r'CUDA\s+Version:\s+([\d\.]+)\s+', output)
         try:
-            return latestValidVersion(version.group(1), cudaLookup), version.group(1)
+            return closestLatestVersion(version.group(1), cudaLookup), version.group(1)
         except:
             pass
     return 'cpu', None
