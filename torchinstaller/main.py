@@ -94,62 +94,15 @@ def main():
     command = getCommandForPlatform(config["torch"][command_key], platform)
     pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
 
-    try:
-        url = command["url"]
-    except:
-        url = None
 
-    use_poetry = args.use == "poetry"
+    if args.pytorch:
+        handleTorchCommand(installer, command, args.install)
 
-    if use_poetry:
-        if args.pytorch:
-            if url is not None:
-                run(["poetry", "source", "add", "torch", command["url"]], args.install)
+    if args.lightning:
+        handleLightningCommand(installer, args.install)
 
-            commandArgs = ["poetry", "add"]
-            commandArgs.extend(commandToStrings(command))
-
-            if url is not None:
-                commandArgs.extend(["--source", "torch"])
-
-            run(commandArgs, args.install)
-
-        if args.lightning:
-            run(["poetry", "add", "pytorch-lightning"], args.install)
-    else:
-        if args.pytorch:
-            commandArgs = [installer, "install"]
-            commandArgs.extend(commandToStrings(command))
-
-            if url is not None and installer == "pip":
-                commandArgs.extend(["--extra-index-url", command["url"]])
-
-            run(commandArgs, args.install)
-
-        if args.lightning:
-            lightning = [installer, "install", "pytorch-lightning"]
-            if installer == "pip":
-                run(lightning, args.install)
-            else:
-                lightning.append("-c conda-forge")
-                run(lightning, args.install)
-
-        if args.pyg:
-            cArgs = [installer, "install"]
-
-            if args.pyg_lib_source:
-                cArgs.append("git+https://github.com/pyg-team/pyg-lib.git")
-                run(cArgs, args.install)
-                cArgs = cArgs[:-1]
-                pygCommand.pop("pyg_lib")
-                pygCommand.pop("url")
-
-            cArgs.extend(commandToStrings(pygCommand))
-
-            if "url" in pygCommand:
-                cArgs.extend(["-f", pygCommand["url"]])
-
-            run(cArgs, args.install)
+    if args.pyg:
+        handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
 
     # except Exception as err:
     #     print('Install failed')

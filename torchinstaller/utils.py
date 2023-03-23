@@ -4,6 +4,74 @@ import subprocess
 import re
 
 
+def handleTorchCommand(installer, command, run_install):
+    commandArgs = [installer, "install"]
+    commandArgs.extend(commandToStrings(command))
+
+    try:
+        url = command["url"]
+    except Exception:
+        url = None
+
+    if url is not None and installer == "pip":
+        commandArgs.extend(["--extra-index-url", command["url"]])
+    run(commandArgs, run_install)
+
+
+def handleLightningCommand(installer, run_install):
+    if installer in ["poetry"]:
+        run(["poetry", "add", "pytorch-lightning"], run_install)
+    else:
+        lightning = [installer, "install", "pytorch-lightning"]
+        if installer == "pip":
+            run(lightning, run_install)
+        else:
+            lightning.append("-c conda-forge")
+            run(lightning, run_install)
+
+
+def handlePyGCommand(installer, command, pyg_lib_source, run_install):
+    cArgs = [installer, "install"]
+
+    try:
+        url = command["url"]
+    except Exception:
+        url = None
+
+    if pyg_lib_source:
+        cArgs.append("git+https://github.com/pyg-team/pyg-lib.git")
+        run(cArgs, run_install)
+        cArgs = cArgs[:-1]
+        command.pop("pyg_lib")
+        command.pop("url")
+
+    cArgs.extend(commandToStrings(command))
+
+    if url is not None:
+        cArgs.extend(["-f", command["url"]])
+
+    run(cArgs, run_install)
+
+
+def handlePoetryCommand(installer, command, run_install):
+
+    try:
+        url = command["url"]
+    except Exception:
+        url = None
+
+    if url is not None:
+        run(["poetry", "source", "add", "torch", command["url"]], run_install)
+
+    commandArgs = ["poetry", "add"]
+    commandArgs.extend(commandToStrings(command))
+
+    if "url" in command and command["url"] is not None:
+        commandArgs.extend(["--source", "torch"])
+
+    run(commandArgs, run_install)
+
+
 def getCommandForPlatform(package_spec, platform):
     command = {}
     versions = list(package_spec.keys())
@@ -20,6 +88,7 @@ def getCommandForPlatform(package_spec, platform):
                 )
                 command.update(**{k: v for k, v in entry.items() if k != "platform"})
                 return command
+
     raise Exception(f"platform not found: {platform}")
 
 
