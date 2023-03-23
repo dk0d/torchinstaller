@@ -143,7 +143,7 @@ def getCudaVersion(availableVersions):
     return "cpu", None
 
 
-def pythonVersion(withMicro=True):
+def getPythonVersion(withMicro=True):
     import sys
 
     version = f"{sys.version_info.major}.{sys.version_info.minor}"
@@ -152,7 +152,7 @@ def pythonVersion(withMicro=True):
     return version
 
 
-def getPlatform():
+def getSystemPlatform():
     from sys import platform
 
     return platform

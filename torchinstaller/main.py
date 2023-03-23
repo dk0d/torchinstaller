@@ -66,13 +66,13 @@ def main():
     except Exception as e:
         print(f"[red bold]Install Failed: {e}")
 
-    command_key = "conda" if args.use in ["conda", "mamba"] else args.use
-    command_key = "pip" if args.use in ["pip", "poetry"] else args.use
-
-    python_version = pythonVersion()
-    system_platform = getPlatform()
-
     installer = args.use
+
+    command_key = "conda" if installer in ["conda", "mamba"] else installer
+    command_key = "pip" if installer in ["pip", "poetry"] else installer 
+
+    python_version = getPythonVersion()
+    system_platform = getSystemPlatform()
 
     platform, detected = getCudaVersion(availableCudaVersions(config))
 
@@ -92,16 +92,15 @@ def main():
         print("[yellow bold]macOS (pytorch 2.0 supports apple silicon)")
 
     try:
-        command = getCommandForPlatform(config["torch"][command_key], platform)
-        pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
-
         if args.pytorch:
+            command = getCommandForPlatform(config["torch"][command_key], platform)
             handleTorchCommand(installer, command, args.install)
 
         if args.lightning:
             handleLightningCommand(installer, args.install)
 
         if args.pyg:
+            pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
             handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
 
         if not any([args.pytorch, args.lightning, args.pyg]):
