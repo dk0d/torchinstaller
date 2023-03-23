@@ -1,4 +1,5 @@
 from pathlib import Path
+from  rich import print
 import argparse
 from .utils import *
 
@@ -25,7 +26,7 @@ def main():
     parser.add_argument(
         "--pyg-lib-source",
         "-pyg-src",
-        help="Pytorch Geometric doesn't support wheels for M1/M2 macs, they recomment installing from source",
+        help="Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs, they recommend installing from source",
         default=False,
         action="store_true",
         dest="pyg_lib_source",
@@ -36,7 +37,7 @@ def main():
         type=str,
         default=None,
         choices=availableCudaVersions(config),
-        help="Manually specify cuda version instead of auto-detect (useful for cluster installations).",
+        help="Manually specify platform version (cuda or rocm) instead of auto-detect (useful for cluster installations).",
     )
     parser.add_argument(
         "--lightning",
@@ -50,7 +51,7 @@ def main():
         "-use",
         default="pip",
         choices=["pip", "conda", "mamba", "poetry"],
-        help="set command to install with",
+        help="set command to install with.",
     )
     parser.add_argument(
         "-install",
@@ -63,7 +64,7 @@ def main():
     try:
         args = parser.parse_args()
     except Exception as e:
-        print(f"Install Failed: {e}")
+        print(f"[red bold]Install Failed: {e}")
 
     command_key = "conda" if args.use in ["conda", "mamba"] else args.use
     command_key = "pip" if args.use in ["pip", "poetry"] else args.use
@@ -79,16 +80,16 @@ def main():
         platform = "macOS"
     else:
         if args.cuda is None:
-            print(f"System CUDA: {detected}\nUsing CUDA: {platform}")
+            print(f"[blue bold]System CUDA: {detected}\nUsing CUDA: {platform}")
         else:
             platform = args.cuda
-            print(f"User specified CUDA: {platform}")
-            print(f"System CUDA: {detected}\nUsing CUDA: {platform}")
+            print(f"[yellow bold]User specified CUDA: {platform}")
+            print(f"[blue bold]System CUDA: {detected}\nUsing CUDA: {platform}")
 
     if platform in ["cpu"]:
-        print("CPU ONLY")
+        print("[orange bold]CPU ONLY")
     elif platform in ["macOS"]:
-        print("macOS (pytorch 2.0 supports apple silicon)")
+        print("[yellow bold]macOS (pytorch 2.0 supports apple silicon)")
 
     try:
         command = getCommandForPlatform(config["torch"][command_key], platform)
@@ -102,6 +103,10 @@ def main():
 
         if args.pyg:
             handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
+
+        if not any([args.pytorch, args.lightning, args.pyg]):
+            print(f'[red bold]NO COMMANDS Selected')
+            print(f'[green bold]Run torchinstall -h to see flags for installing')
 
     except Exception as err:
         print("Install failed")
