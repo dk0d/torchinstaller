@@ -48,7 +48,7 @@ def main():
     )
     parser.add_argument(
         "--use",
-        "-use",
+        "-u",
         default="pip",
         choices=["pip", "conda", "mamba", "poetry"],
         help="set command to install with.",
