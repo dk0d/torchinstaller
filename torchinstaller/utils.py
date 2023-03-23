@@ -1,4 +1,5 @@
 from pathlib import Path
+from rich import print
 import tomlkit
 import subprocess
 import re
@@ -109,7 +110,7 @@ def loadConfig(path: Path):
             # print(cfg)
         return cfg
     except Exception:
-        print("Commands configuration not found, package installation error")
+        print("[red bold]Commands configuration not found, package installation error")
         exit(1)
 
 
@@ -183,9 +184,9 @@ def commandToStrings(command, skip=["url"]):
 
 def run(args, install):
     if not install:
-        print(f"[Dry Run]\n{' '.join(args)}")
+        print(f"[blue bold]\n\[Dry Run][/blue bold]\n{' '.join(args)}\n")
     else:
-        print(f'[Running]\n{" ".join(args)}\n')
+        print(f'[green bold]\n\[Running][/green bold]\n{" ".join(args)}\n')
         subprocess.run(args)
 
 
