@@ -90,24 +90,23 @@ def main():
     elif platform in ["macOS"]:
         print("macOS (pytorch 2.0 supports apple silicon)")
 
-    # try:
-    command = getCommandForPlatform(config["torch"][command_key], platform)
-    pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
+    try:
+        command = getCommandForPlatform(config["torch"][command_key], platform)
+        pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
 
+        if args.pytorch:
+            handleTorchCommand(installer, command, args.install)
 
-    if args.pytorch:
-        handleTorchCommand(installer, command, args.install)
+        if args.lightning:
+            handleLightningCommand(installer, args.install)
 
-    if args.lightning:
-        handleLightningCommand(installer, args.install)
+        if args.pyg:
+            handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
 
-    if args.pyg:
-        handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
-
-    # except Exception as err:
-    #     print('Install failed')
-    #     print(f'{err}')
-    #     raise err
+    except Exception as err:
+        print("Install failed")
+        print(f"{err}")
+        raise err
 
 
 if __name__ == "__main__":
