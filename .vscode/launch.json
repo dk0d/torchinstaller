@@ -5,18 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["--pdb"],
+            "justMyCode": true
+        },
+        {
             "name": "torchinstaller",
             "type": "python",
             "request": "launch",
             "module": "torchinstaller",
             "console": "integratedTerminal",
             "args": [
+                "-pt",
                 "-c",
                 "11.6",
                 "-l",
                 "-pyg",
-                "-u", "pip"
-                // "-p"
+                "-u",
+                "pip"
             ],
             // "args": [ "-d" ],
             "justMyCode": true

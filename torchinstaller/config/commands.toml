@@ -1,297 +1,371 @@
 # ************************************************************
 # Section Format
 # ************************************************************
-# Required install keys specified by the `keys_`
-# package level array, interpreted as `None` when not present
 # 
-# [package.{command}.{pytorch version}.{cuda version}]
+# [package.{command}.{pytorch version}]
+# package = version 
+# [[package.{command}.{pytorch version}.platforms]]
 # key = value
 # ************************************************************
 
-commands = ['pip', 'mamba', 'conda', 'poetry']
+commands = ['pip', 'mamba', 'conda']
 
-[torch.pip]
-keys_ = [
-    "torch",
-    "torchvision",
-    "torchaudio",
-    "url",
-]
+# TORCH - CONDA
 
- # TORCH - CONDA
-[torch.conda."1.13.1".cpu]
+# 2.0.0
+[torch.conda."2.0.0"]
 pytorch = ""
 torchvision = ""
 torchaudio = ""
-channels="cpuonly -c pytorch"
 
-[torch.conda."1.13.1"."11.7"]
-pytorch = ""
-torchvision = ""
-torchaudio = ""
-pytorch-cuda="11.7"
-channels = '-c pytorch -c nvidia'
-
-[torch.conda."1.13.1"."11.6"]
-pytorch = ""
-torchvision = ""
-torchaudio = ""
-pytorch-cuda="11.6"
-channels = '-c pytorch -c nvidia'
-
-[torch.conda."1.12.1"."10.2"]
-pytorch = "1.12.1"
-torchvision = "0.13.1"
-torchaudio = "0.12.1"
-cudatoolkit='10.2'
+[[torch.conda."2.0.0".platforms]]
+platform = 'cpu'
 channels = "-c pytorch"
 
-[torch.conda."1.12.1"."11.3"]
-pytorch = "1.12.1"
-torchvision = "0.13.1"
-torchaudio = "0.12.1"
-cudatoolkit='11.3'
+[[torch.conda."2.0.0".platforms]]
+platform = "11.8"
+pytorch-cuda = "11.8"
 channels = "-c pytorch"
 
-[torch.conda."1.12.1"."11.6"]
-pytorch = "1.12.1"
-torchvision = "0.13.1"
-torchaudio = "0.12.1"
-cudatoolkit='11.6'
-channels = "-c pytorch -c conda-forge"
+[[torch.conda."2.0.0".platforms]]
+platform = "11.7"
+pytorch-cuda = "11.7"
+channels = "-c pytorch"
 
-[torch.conda."1.12.1".cpu]
-pytorch = "1.12.1"
-torchvision = "0.13.1"
-torchaudio = "0.12.1"
+# 1.13.1
+[torch.conda."1.13.1"]
+pytorch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+
+[[torch.conda."1.13.1".platforms]]
+platform = "cpu"
 channels = "cpuonly -c pytorch"
 
+[[torch.conda."1.13.1".platforms]]
+platform = "11.7"
+pytorch-cuda = "11.7"
+channels = '-c pytorch -c nvidia'
 
-[torch.conda."1.12.0"."10.2"]
-pytorch = "1.12.0"
-torchvision = "0.13.0"
-torchaudio = "0.12.0"
-cudatoolkit='10.2'
+[[torch.conda."1.13.1".platforms]]
+platform = "11.6"
+pytorch-cuda = "11.6"
+channels = '-c pytorch -c nvidia'
+
+# 1.12.1
+[torch.conda."1.12.1"]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+
+[[torch.conda."1.12.1".platforms]]
+platform = "10.2"
+cudatoolkit = '10.2'
 channels = "-c pytorch"
 
-[torch.conda."1.12.0"."11.3"]
-pytorch = "1.12.0"
-torchvision = "0.13.0"
-torchaudio = "0.12.0"
-cudatoolkit='11.3'
+[[torch.conda."1.12.1".platforms]]
+platform = "11.3"
+cudatoolkit = '11.3'
 channels = "-c pytorch"
 
-[torch.conda."1.12.0"."11.6"]
-pytorch = "1.12.0"
-torchvision = "0.13.0"
-torchaudio = "0.12.0"
-cudatoolkit='11.6'
+[[torch.conda."1.12.1".platforms]]
+platform = "11.6"
+cudatoolkit = '11.6'
 channels = "-c pytorch -c conda-forge"
 
-[torch.conda."1.12.0".cpu]
+[[torch.conda."1.12.1".platforms]]
+platform = 'cpu'
+channels = "cpuonly -c pytorch"
+
+# 1.12.0
+[torch.conda."1.12.0"]
 pytorch = "1.12.0"
 torchvision = "0.13.0"
 torchaudio = "0.12.0"
+
+[[torch.conda."1.12.0".platforms]]
+platform = "10.2"
+cudatoolkit = '10.2'
+channels = "-c pytorch"
+
+[[torch.conda."1.12.0".platforms]]
+platform = "11.3"
+cudatoolkit = '11.3'
+channels = "-c pytorch"
+
+[[torch.conda."1.12.0".platforms]]
+platform = "11.7"
+cudatoolkit = '11.6'
+channels = "-c pytorch -c conda-forge"
+
+[[torch.conda."1.12.0".cpu]]
+platform = "cpu"
 channels = "cpuonly -c pytorch"
 
 
 # TORCH - PIP
-[torch.pip."1.13.1"."11.6"]
-torch = ""
-torchvision = ""
-torchaudio = ""
-url = "https://download.pytorch.org/whl/cu116"
 
-[torch.pip."1.13.1"."11.7"]
+[torch.pip."2.0.0"]
 torch = ""
 torchvision = ""
 torchaudio = ""
-# None
 
-[torch.pip."1.13.1".cpu]
-torch = ""
-torchvision = ""
-torchaudio = ""
+[[torch.pip."2.0.0".platforms]]
+platform = "11.7"
+# No override specs
+# url = "https://download.pytorch.org/whl/cu117"
+
+[[torch.pip."2.0.0".platforms]]
+platform = "rocm5.4.2"
+url = "https://download.pytorch.org/whl/rocm5.4.2"
+
+[[torch.pip."2.0.0".platforms]]
+platform = "11.8"
+url = "https://download.pytorch.org/whl/cu118"
+
+[[torch.pip."2.0.0".platforms]]
+platform = "cpu"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.pip."1.13.1".macOS]
-torch = ""
-torchvision = ""
-torchaudio = ""
-# None
+[[torch.pip."2.0.0".platforms]]
+platform = "macOS"
+# No override specs
 
-[torch.pip."1.12.1"."10.2"]
-torch = "1.12.1+cu102"
-torchvision = "0.13.1+cu102"
-torchaudio = "0.12.1"
-url = "https://download.pytorch.org/whl/cu102"
 
-[torch.pip."1.12.1"."11.3"]
-torch = "1.12.1+cu113"
-torchvision = "0.13.1+cu113"
-torchaudio = "0.12.1"
-url = "https://download.pytorch.org/whl/cu113"
+# 1.13.1
+[torch.pip."1.13.1"]
+torch = "1.13.1"
+torchvsion = "0.14.1"
+torchaudio = "0.13.1"
 
-[torch.pip."1.12.1"."11.6"]
-torch = "1.12.1+cu116"
-torchvision = "0.13.1+cu116"
-torchaudio = "0.12.1"
+[[torch.pip."1.13.1".platforms]]
+platform = "11.6"
+torch = "1.13.1+cu116"
+torchvision = "1.14.1+cu116"
 url = "https://download.pytorch.org/whl/cu116"
 
-[torch.pip."1.12.1".cpu]
-torch = "1.12.1+cpu"
-torchvision = "0.13.1+cpu"
-torchaudio = "0.12.1"
+[[torch.pip."1.13.1".platforms]]
+platform = "11.7"
+torch = "1.13.1+cu117"
+torchvision = "1.14.1+cu117"
+url = "https://download.pytorch.org/whl/cu117"
+
+[[torch.pip."1.13.1".platforms]]
+platform = "cpu"
+torch = "1.13.1+cpu"
+torchvision = "1.14.1+cpu"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.pip."1.12.1".macOS]
+[[torch.pip."1.13.1".platforms]]
+platform = "macOS"
+# None
+
+# 1.12.1
+[torch.pip."1.12.1"]
 torch = "1.12.1"
 torchvision = "0.13.1"
 torchaudio = "0.12.1"
 
-[torch.pip."1.12.0"."10.2"]
-torch = "1.12.0+cu102"
-torchvision = "0.13.0+cu102"
-torchaudio = "0.12.0"
+[[torch.pip."1.12.1".platforms]]
+platform = "10.2"
+torch = "1.12.1+cu102"
+torchvision = "0.13.1+cu102"
 url = "https://download.pytorch.org/whl/cu102"
 
-[torch.pip."1.12.0"."11.3"]
-torch = "1.12.0+cu113"
-torchvision = "0.13.0+cu113"
-torchaudio = "0.12.0"
+[[torch.pip."1.12.1".platforms]]
+platform = "11.3"
+torch = "1.12.1+cu113"
+torchvision = "0.13.1+cu113"
 url = "https://download.pytorch.org/whl/cu113"
 
-[torch.pip."1.12.0"."11.6"]
-torch = "1.12.0+cu116"
-torchvision = "0.13.0+cu116"
-torchaudio = "0.12.0"
+[[torch.pip."1.12.1".platforms]]
+platform = "11.6"
+torch = "1.12.1+cu116"
+torchvision = "0.13.1+cu116"
 url = "https://download.pytorch.org/whl/cu116"
 
-[torch.pip."1.12.0".cpu]
-torch = "1.12.0+cpu"
-torchvision = "0.13.0+cpu"
-torchaudio = "0.12.0"
+[[torch.pip."1.12.1".platforms]]
+platform = "cpu"
+torch = "1.12.1+cpu"
+torchvision = "0.13.1+cpu"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.pip."1.12.0".macOS]
+[[torch.pip."1.12.1".platforms]]
+platform = "macOS"
+torch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+
+# 1.12.0
+[torch.pip."1.12.0"]
 torch = "1.12.0"
 torchvision = "0.13.0"
 torchaudio = "0.12.0"
 
-[torch.pip."1.11.0"."10.2"]
-torch = "1.11.0+cu102"
-torchvision = "0.12.0+cu102"
-torchaudio = "0.11.0"
+[[torch.pip."1.12.0".platforms]]
+platform = "10.2"
+torch = "1.12.0+cu102"
+torchvision = "0.13.0+cu102"
 url = "https://download.pytorch.org/whl/cu102"
 
-[torch.pip."1.11.0"."11.3"]
-torch = "1.11.0+cu113"
-torchvision = "0.12.0+cu113"
-torchaudio = "0.11.0"
+[[torch.pip."1.12.0".platforms]]
+platform = "11.3"
+torch = "1.12.0+cu113"
+torchvision = "0.13.0+cu113"
 url = "https://download.pytorch.org/whl/cu113"
 
-[torch.pip."1.11.0".cpu]
-torch = "1.11.0+cpu"
-torchvision = "0.12.0+cpu"
-torchaudio = "0.11.0"
+[[torch.pip."1.12.0".platforms]]
+platform = "11.6"
+torch = "1.12.0+cu116"
+torchvision = "0.13.0+cu116"
+url = "https://download.pytorch.org/whl/cu116"
+
+[[torch.pip."1.12.0".platforms]]
+platform = "cpu"
+torch = "1.12.0+cpu"
+torchvision = "0.13.0+cpu"
 url = "https://download.pytorch.org/whl/cpu"
 
-[torch.pip."1.11.0".macOS]
-torch = "1.11.0"
-torchvision = "0.12.0"
-torchaudio = "0.11.0"
-
-
+[[torch.pip."1.12.0".platforms]]
+platform = "macOS"
+# No override specs
 
 # Pytorch Geometric - pip
 
-[pygeo.pip."1.12.*"."10.2"]
+[pygeo.pip."2.0.*"]
+torch_geometric = ""
+pyg_lib = ""
+torch_scatter = ""
+torch_sparse = ""
+torch_cluster = ""
+torch_spline_conv = ""
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "11.7"
+url = "https://data.pyg.org/whl/torch-2.0.0+cu117.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "11.7"
+url = "https://data.pyg.org/whl/torch-2.0.0+cu118.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "cpu"
+url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
+
+
+[pygeo.pip."1.12.*"]
 pyg_lib = ""
 torch_scatter = ""
 torch_sparse = ""
 torch_cluster = ""
 torch_spline_conv = ""
 torch_geometric = ""
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "10.2"
 url = "https://data.pyg.org/whl/torch-1.12.0+cu102.html"
 
-[pygeo.pip."1.12.*"."11.3"]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[[pygeo.pip."1.12.*".platforms]]
+platform = "11.3"
 url = "https://data.pyg.org/whl/torch-1.12.0+cu113.html"
 
-[pygeo.pip."1.12.*"."11.6"]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[[pygeo.pip."1.12.*".platforms]]
+platform = "11.6"
 url = "https://data.pyg.org/whl/torch-1.12.0+cu116.html"
 
-[pygeo.pip."1.12.*".cpu]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[[pygeo.pip."1.12.*".platforms]]
+platform = "cpu"
 url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
 
-[pygeo.pip."1.13.*"."11.6"]
+[[pygeo.pip."1.12.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
+
+[pygeo.pip."1.13.*"]
 pyg_lib = ""
 torch_scatter = ""
 torch_sparse = ""
 torch_cluster = ""
 torch_spline_conv = ""
 torch_geometric = ""
+
+[[pygeo.pip."1.13.*".platforms]]
+platform = "11.6"
 url = "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
 
-[pygeo.pip."1.13.*"."11.7"]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[[pygeo.pip."1.13.*".platforms]]
+platform = "11.7"
 url = "https://data.pyg.org/whl/torch-1.13.0+cu117.html"
 
-[pygeo.pip."1.13.*".cpu]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[[pygeo.pip."1.13.*".platforms]]
+platform = "cpu"
 url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
 
-[pygeo.conda."1.12.*"."10.2"]
+[[pygeo.pip."1.13.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
+
+# Pytorch Geometric - conda
+
+[pygeo.conda."2.0.*"]
 pyg = ""
+
+[[pygeo.conda."2.0.*".platforms]]
+platform = "11.7"
 channels = '-c pyg'
 
-[pygeo.conda."1.12.*"."11.3"]
-pyg = ""
+[[pygeo.conda."2.0.*".platforms]]
+platform = "11.8"
 channels = '-c pyg'
 
-[pygeo.conda."1.12.*"."11.6"]
-pyg = ""
+[[pygeo.conda."2.0.*".platforms]]
+platform = "cpu"
 channels = '-c pyg'
 
-[pygeo.conda."1.12.*".cpu]
-pyg = ""
+[[pygeo.conda."2.0.*".platforms]]
+platform = "macOS"
 channels = '-c pyg'
 
-[pygeo.conda."1.13.*"."11.6"]
+
+[pygeo.conda."1.12.*"]
 pyg = ""
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "11.3"
 channels = '-c pyg'
 
-[pygeo.conda."1.13.*"."11.7"]
-pyg = ""
+[[pygeo.conda."1.12.*".platforms]]
+platform = "11.6"
 channels = '-c pyg'
 
-[pygeo.conda."1.13.*".cpu]
+[[pygeo.conda."1.12.*".platforms]]
+platform = "cpu"
+channels = '-c pyg'
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "macOS"
+channels = '-c pyg'
+
+
+[pygeo.conda."1.13.*"]
 pyg = ""
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "11.6"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "11.7"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "cpu"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "macOS"
 channels = '-c pyg'

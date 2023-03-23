@@ -1,8 +1,5 @@
 from pathlib import Path
 import argparse
-import subprocess
-import re
-import tomlkit
 from .utils import *
 
 
@@ -10,29 +7,13 @@ def main():
     configPath = Path(__file__).parent / "config" / "commands.toml"
     config = loadConfig(configPath)
     parser = argparse.ArgumentParser()
-    # parser.add_argument(
-    #     '--poetry', '-p',
-    #     action='store_true',
-    #     default=False,
-    #     help='Uses poetry for install. Creates a torch source and adds torch to pyproject.toml'
-    # )
-    # parser.add_argument(
-    #     '--dryrun', '-d',
-    #     action='store_true',
-    #     default=Tre,
-    #     help="just prints the commands that would be run"
-    # )
-    # parser.add_argument(
-    #     '--install', '-i',
-    #     help='run install commands'
-    # )
 
     parser.add_argument(
         "--pytorch",
         "-pt",
         help="Flag to install pytorch",
         default=False,
-        action='store_true'
+        action="store_true",
     )
     parser.add_argument(
         "--pyg",
@@ -42,19 +23,19 @@ def main():
         default=False,
     )
     parser.add_argument(
-        '--pyg-lib-source',
-        '-pyg-src',
+        "--pyg-lib-source",
+        "-pyg-src",
         help="Pytorch Geometric doesn't support wheels for M1/M2 macs, they recomment installing from source",
         default=False,
-        action='store_true',
-        dest='pyg_lib_source'
+        action="store_true",
+        dest="pyg_lib_source",
     )
     parser.add_argument(
         "--cuda",
         "-c",
         type=str,
         default=None,
-        choices=cudaVersions(config),
+        choices=availableCudaVersions(config),
         help="Manually specify cuda version instead of auto-detect (useful for cluster installations).",
     )
     parser.add_argument(
@@ -85,34 +66,33 @@ def main():
         print(f"Install Failed: {e}")
 
     command_key = "conda" if args.use in ["conda", "mamba"] else args.use
-    command_key = "pip" if args.use in ['pip', 'poetry'] else args.use
+    command_key = "pip" if args.use in ["pip", "poetry"] else args.use
 
-    torchCudaLookup = commandToLookup(config["torch"][command_key])
-    pygLookup = commandToLookup(config["pygeo"][command_key])
+    python_version = pythonVersion()
+    system_platform = getPlatform()
 
     installer = args.use
 
-    pyVersion = pythonVersion()
+    platform, detected = getCudaVersion(availableCudaVersions(config))
 
-    cudaVersion, detected = getCudaVersion(torchCudaLookup)
-
-    if args.cuda is None:
-        cudaVersion, detected = getCudaVersion(torchCudaLookup)
-        print(f"System CUDA: {detected}\nUsing CUDA: {cudaVersion}")
+    if system_platform == "darwin":
+        platform = "macOS"
     else:
-        cudaVersion = args.cuda
-        print(f"User specified CUDA: {cudaVersion}")
-        print(f"System CUDA: {detected}\nUsing CUDA: {cudaVersion}")
+        if args.cuda is None:
+            print(f"System CUDA: {detected}\nUsing CUDA: {platform}")
+        else:
+            platform = args.cuda
+            print(f"User specified CUDA: {platform}")
+            print(f"System CUDA: {detected}\nUsing CUDA: {platform}")
 
-    if getPlatform() == "darwin":
-        cudaVersion == "macOS"
-
-    if cudaVersion in ["macOS", "cpu"]:
+    if platform in ["cpu"]:
         print("CPU ONLY")
+    elif platform in ["macOS"]:
+        print("macOS (pytorch 2.0 supports apple silicon)")
 
     # try:
-
-    command = torchCudaLookup[cudaVersion][-1][1]
+    command = getCommandForPlatform(config["torch"][command_key], platform)
+    pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
 
     try:
         url = command["url"]
@@ -155,15 +135,14 @@ def main():
                 run(lightning, args.install)
 
         if args.pyg:
-            pygCommand = pygLookup[cudaVersion][-1][1]
             cArgs = [installer, "install"]
 
             if args.pyg_lib_source:
                 cArgs.append("git+https://github.com/pyg-team/pyg-lib.git")
                 run(cArgs, args.install)
                 cArgs = cArgs[:-1]
-                pygCommand.pop('pyg_lib')
-                pygCommand.pop('url')
+                pygCommand.pop("pyg_lib")
+                pygCommand.pop("url")
 
             cArgs.extend(commandToStrings(pygCommand))
 
