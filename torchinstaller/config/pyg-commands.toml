@@ -1,0 +1,148 @@
+# Pytorch Geometric - pip
+
+
+[cu117.pip]
+torch_geometric = ""
+pyg_lib = ""
+torch_scatter = ""
+torch_sparse = ""
+torch_cluster = ""
+torch_spline_conv = ""
+
+[pygeo.pip."2.0.*"]
+torch_geometric = ""
+pyg_lib = ""
+torch_scatter = ""
+torch_sparse = ""
+torch_cluster = ""
+torch_spline_conv = ""
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "11.7"
+url = "https://data.pyg.org/whl/torch-2.0.0+cu117.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "11.7"
+url = "https://data.pyg.org/whl/torch-2.0.0+cu118.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "cpu"
+url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
+
+[[pygeo.pip."2.0.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
+
+
+[pygeo.pip."1.12.*"]
+pyg_lib = ""
+torch_scatter = ""
+torch_sparse = ""
+torch_cluster = ""
+torch_spline_conv = ""
+torch_geometric = ""
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "10.2"
+url = "https://data.pyg.org/whl/torch-1.12.0+cu102.html"
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "11.3"
+url = "https://data.pyg.org/whl/torch-1.12.0+cu113.html"
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "11.6"
+url = "https://data.pyg.org/whl/torch-1.12.0+cu116.html"
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "cpu"
+url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
+
+[[pygeo.pip."1.12.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
+
+[pygeo.pip."1.13.*"]
+pyg_lib = ""
+torch_scatter = ""
+torch_sparse = ""
+torch_cluster = ""
+torch_spline_conv = ""
+torch_geometric = ""
+
+[[pygeo.pip."1.13.*".platforms]]
+platform = "11.6"
+url = "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
+
+[[pygeo.pip."1.13.*".platforms]]
+platform = "11.7"
+url = "https://data.pyg.org/whl/torch-1.13.0+cu117.html"
+
+[[pygeo.pip."1.13.*".platforms]]
+platform = "cpu"
+url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
+
+[[pygeo.pip."1.13.*".platforms]]
+platform = "macOS"
+url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
+
+# Pytorch Geometric - conda
+
+[pygeo.conda."2.0.*"]
+pyg = ""
+
+[[pygeo.conda."2.0.*".platforms]]
+platform = "11.7"
+channels = '-c pyg'
+
+[[pygeo.conda."2.0.*".platforms]]
+platform = "11.8"
+channels = '-c pyg'
+
+[[pygeo.conda."2.0.*".platforms]]
+platform = "cpu"
+channels = '-c pyg'
+
+[[pygeo.conda."2.0.*".platforms]]
+platform = "macOS"
+channels = '-c pyg'
+
+
+[pygeo.conda."1.12.*"]
+pyg = ""
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "11.3"
+channels = '-c pyg'
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "11.6"
+channels = '-c pyg'
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "cpu"
+channels = '-c pyg'
+
+[[pygeo.conda."1.12.*".platforms]]
+platform = "macOS"
+channels = '-c pyg'
+
+
+[pygeo.conda."1.13.*"]
+pyg = ""
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "11.6"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "11.7"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "cpu"
+channels = '-c pyg'
+
+[[pygeo.conda."1.13.*".platforms]]
+platform = "macOS"
+channels = '-c pyg'

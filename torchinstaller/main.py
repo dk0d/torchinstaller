@@ -1,7 +1,20 @@
 from pathlib import Path
-from  rich import print
+from rich import print
 import argparse
-from .utils import *
+
+from packaging.version import Version
+
+from .utils import (
+    loadConfig,
+    availableCudaVersions,
+    getPythonVersion,
+    getSystemPlatform,
+    getCudaVersion,
+    getCommandForPlatform,
+    handlePyGCommand,
+    handleTorchCommand,
+    handleLightningCommand,
+)
 
 
 def main():
@@ -12,10 +25,14 @@ def main():
     parser.add_argument(
         "--pytorch",
         "-pt",
-        help="Flag to install pytorch",
-        default=False,
-        action="store_true",
+        help=(
+            "Flag to install pytorch, can optionally specify a desired version."
+            " Must be full semantic version, e.g. 1.13.1, not 1.13"
+        ),
+        nargs="?",
+        const="latest",
     )
+    parser.add_argument
     parser.add_argument(
         "--pyg",
         "-pyg",
@@ -26,7 +43,10 @@ def main():
     parser.add_argument(
         "--pyg-lib-source",
         "-pyg-src",
-        help="Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs, they recommend installing from source",
+        help=(
+            "Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs"
+            "they recommend installing from source"
+        ),
         default=False,
         action="store_true",
         dest="pyg_lib_source",
@@ -37,7 +57,10 @@ def main():
         type=str,
         default=None,
         choices=availableCudaVersions(config),
-        help="Manually specify platform version (cuda or rocm) instead of auto-detect (useful for cluster installations).",
+        help=(
+            "Manually specify platform version (cuda or rocm) instead of"
+            "auto-detect (useful for cluster installations)."
+        ),
     )
     parser.add_argument(
         "--lightning",
@@ -64,18 +87,27 @@ def main():
     try:
         args = parser.parse_args()
     except Exception as e:
-        print(f"[red bold]Install Failed: {e}")
+        print("-" * 80)
+        print("[red bold]Argument Error")
+        print(e)
+        print("-" * 80)
+        exit(0)
 
     installer = args.use
 
-    command_key = "conda" if installer in ["conda", "mamba"] else installer
-    command_key = "pip" if installer in ["pip", "poetry"] else installer 
+    if installer in ["conda", "mamba"]:
+        command_key = "conda"
+    elif installer in ["pip", "poetry"]:
+        command_key = "pip"
+    else:
+        raise NotImplementedError("Unsupported installer")
 
-    python_version = getPythonVersion()
+    getPythonVersion()
     system_platform = getSystemPlatform()
 
     platform, detected = getCudaVersion(availableCudaVersions(config))
 
+    print("-" * 100)
     if system_platform == "darwin":
         platform = "macOS"
     else:
@@ -91,26 +123,45 @@ def main():
     elif platform in ["macOS"]:
         print("[yellow bold]macOS (pytorch 2.0 supports apple silicon)")
 
-    try:
-        if args.pytorch:
-            command = getCommandForPlatform(config["torch"][command_key], platform)
-            handleTorchCommand(installer, command, args.install)
+    print("-" * 100)
 
-        if args.lightning:
-            handleLightningCommand(installer, args.install)
+    # try:
 
-        if args.pyg:
-            pygCommand = getCommandForPlatform(config["pygeo"][command_key], platform)
-            handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
+    if args.pytorch is not None:
+        commands = config[platform][command_key]
+        commands.sort(key=lambda x: Version(x["version"]))
+        if args.pytorch == "latest":
+            command = commands[-1]  # latest
+        else:
+            try:
+                command = list(filter(lambda v: v["version"] == args.pytorch, commands))[0]
+            except Exception as e:
+                print(f"[red bold]Could not find version{args.pytorch}...")
+                print("Available versions\n" + "-" * 80)
+                for c in commands:
+                    print(f"- {c['version']}")
+                print('-' * 80)
+                exit(0)
+        handleTorchCommand(installer, command, args.install)
 
-        if not any([args.pytorch, args.lightning, args.pyg]):
-            print(f'[red bold]NO COMMANDS Selected')
-            print(f'[green bold]Run torchinstall -h to see flags for installing')
+    if args.lightning:
+        handleLightningCommand(installer, args.install)
 
-    except Exception as err:
-        print("Install failed")
-        print(f"{err}")
-        raise err
+    if args.pyg:
+        pyg_configPath = Path(__file__).parent / "config" / "pyg-commands.toml"
+        pyg_config = loadConfig(pyg_configPath)
+        pygCommand = getCommandForPlatform(pyg_config["pygeo"][command_key], platform)
+        handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
+
+    if not any([args.pytorch, args.lightning, args.pyg]):
+        print("[red bold]NO COMMANDS Selected")
+        print("[green bold]Run torchinstall -h to see flags for installing")
+
+    # except Exception as err:
+    #     print("Install failed")
+    #     print(f"{err}")
+    #     raise err
+    print("-" * 100)
 
 
 if __name__ == "__main__":

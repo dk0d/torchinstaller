@@ -5,17 +5,10 @@ import subprocess
 import re
 
 
-def handleTorchCommand(installer, command, run_install):
+def handleTorchCommand(installer, command: dict, run_install: bool):
     commandArgs = [installer, "install"]
-    commandArgs.extend(commandToStrings(command))
-
-    try:
-        url = command["url"]
-    except Exception:
-        url = None
-
-    if url is not None and installer == "pip":
-        commandArgs.extend(["--extra-index-url", command["url"]])
+    commandArgs.extend(commandToStrings(command['packages']))
+    commandArgs.extend(command.get("flags", []))
     run(commandArgs, run_install)
 
 
@@ -54,8 +47,7 @@ def handlePyGCommand(installer, command, pyg_lib_source, run_install):
     run(cArgs, run_install)
 
 
-def handlePoetryCommand(installer, command, run_install):
-
+def handlePoetryCommand(command, run_install):
     try:
         url = command["url"]
     except Exception:
@@ -73,6 +65,8 @@ def handlePoetryCommand(installer, command, run_install):
     run(commandArgs, run_install)
 
 
+# Related to commands.bak.toml and pyg-commands.toml
+
 def getCommandForPlatform(package_spec, platform):
     command = {}
     versions = list(package_spec.keys())
@@ -80,13 +74,7 @@ def getCommandForPlatform(package_spec, platform):
     for version in versions:
         for entry in package_spec[version]["platforms"]:
             if entry["platform"].startswith(platform):
-                command.update(
-                    **{
-                        c: v
-                        for c, v in package_spec[version].items()
-                        if c != "platforms"
-                    }
-                )
+                command.update(**{c: v for c, v in package_spec[version].items() if c != "platforms"})
                 command.update(**{k: v for k, v in entry.items() if k != "platform"})
                 return command
 
@@ -103,12 +91,12 @@ def remove_none(d):
     return d
 
 
-def loadConfig(path: Path):
+def loadConfig(path: Path) -> dict:
     try:
         with path.open("r") as fp:
             cfg = tomlkit.load(fp)
             # print(cfg)
-        return cfg
+        return cfg.unwrap()
     except Exception:
         print("[red bold]Commands configuration not found, package installation error")
         exit(1)
@@ -134,12 +122,11 @@ def getCudaVersion(availableVersions):
         result = subprocess.run(["nvidia-smi"], capture_output=True)
         output = str(result.stdout, encoding="utf-8")
         version = re.search(r"CUDA\s+Version:\s+([\d\.]+)\s+", output)
-        try:
-            return closestLatestVersion(
-                version.group(1), availableVersions
-            ), version.group(1)
-        except:
-            pass
+        if version is not None:
+            try:
+                return closestLatestVersion(version.group(1), availableVersions), version.group(1)
+            except Exception:
+                pass
     return "cpu", None
 
 
@@ -184,23 +171,24 @@ def commandToStrings(command, skip=["url"]):
 
 def run(args, install):
     if not install:
-        print(f"[blue bold]\n\[Dry Run][/blue bold]\n{' '.join(args)}\n")
+        print(f"[blue bold]\n\\[Dry Run][/blue bold]\n{' '.join(args)}\n")
     else:
-        print(f'[green bold]\n\[Running][/green bold]\n{" ".join(args)}\n')
+        print(f'[green bold]\n\\[Running][/green bold]\n{" ".join(args)}\n')
         subprocess.run(args)
 
 
 def getPlatforms(config):
-    platforms = list(
-        set(
-            p["platform"]
-            for _, versions in config["torch"].items()
-            for _, packages in versions.items()
-            for p in packages["platforms"]
-        )
-    )
-    platforms.sort()
-    return platforms
+    # platforms = list(
+    #     set(
+    #         p["platform"]
+    #         for _, versions in config["torch"].items()
+    #         for _, packages in versions.items()
+    #         for p in packages["platforms"]
+    #     )
+    # )
+    # platforms.sort()
+
+    return list(config.keys())
 
 
 def availableCudaVersions(config):

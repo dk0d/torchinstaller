@@ -1,371 +1,1048 @@
-# ************************************************************
-# Section Format
-# ************************************************************
-# 
-# [package.{command}.{pytorch version}]
-# package = version 
-# [[package.{command}.{pytorch version}.platforms]]
-# key = value
-# ************************************************************
+[cpu]
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.13.1"
+platform = "cpu"
 
-commands = ['pip', 'mamba', 'conda']
-
-# TORCH - CONDA
-
-# 2.0.0
-[torch.conda."2.0.0"]
-pytorch = ""
-torchvision = ""
-torchaudio = ""
-
-[[torch.conda."2.0.0".platforms]]
-platform = 'cpu'
-channels = "-c pytorch"
-
-[[torch.conda."2.0.0".platforms]]
-platform = "11.8"
-pytorch-cuda = "11.8"
-channels = "-c pytorch"
-
-[[torch.conda."2.0.0".platforms]]
-platform = "11.7"
-pytorch-cuda = "11.7"
-channels = "-c pytorch"
-
-# 1.13.1
-[torch.conda."1.13.1"]
+[cpu.conda.packages]
 pytorch = "1.13.1"
 torchvision = "0.14.1"
 torchaudio = "0.13.1"
 
-[[torch.conda."1.13.1".platforms]]
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.13.0"
 platform = "cpu"
-channels = "cpuonly -c pytorch"
 
-[[torch.conda."1.13.1".platforms]]
-platform = "11.7"
-pytorch-cuda = "11.7"
-channels = '-c pytorch -c nvidia'
+[cpu.conda.packages]
+pytorch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
 
-[[torch.conda."1.13.1".platforms]]
-platform = "11.6"
-pytorch-cuda = "11.6"
-channels = '-c pytorch -c nvidia'
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.12.1"
+platform = "cpu"
 
-# 1.12.1
-[torch.conda."1.12.1"]
+[cpu.conda.packages]
 pytorch = "1.12.1"
 torchvision = "0.13.1"
 torchaudio = "0.12.1"
 
-[[torch.conda."1.12.1".platforms]]
-platform = "10.2"
-cudatoolkit = '10.2'
-channels = "-c pytorch"
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.12.0"
+platform = "cpu"
 
-[[torch.conda."1.12.1".platforms]]
-platform = "11.3"
-cudatoolkit = '11.3'
-channels = "-c pytorch"
-
-[[torch.conda."1.12.1".platforms]]
-platform = "11.6"
-cudatoolkit = '11.6'
-channels = "-c pytorch -c conda-forge"
-
-[[torch.conda."1.12.1".platforms]]
-platform = 'cpu'
-channels = "cpuonly -c pytorch"
-
-# 1.12.0
-[torch.conda."1.12.0"]
+[cpu.conda.packages]
 pytorch = "1.12.0"
 torchvision = "0.13.0"
 torchaudio = "0.12.0"
 
-[[torch.conda."1.12.0".platforms]]
-platform = "10.2"
-cudatoolkit = '10.2'
-channels = "-c pytorch"
-
-[[torch.conda."1.12.0".platforms]]
-platform = "11.3"
-cudatoolkit = '11.3'
-channels = "-c pytorch"
-
-[[torch.conda."1.12.0".platforms]]
-platform = "11.7"
-cudatoolkit = '11.6'
-channels = "-c pytorch -c conda-forge"
-
-[[torch.conda."1.12.0".cpu]]
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.11.0"
 platform = "cpu"
-channels = "cpuonly -c pytorch"
 
+[cpu.conda.packages]
+pytorch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
 
-# TORCH - PIP
-
-[torch.pip."2.0.0"]
-torch = ""
-torchvision = ""
-torchaudio = ""
-
-[[torch.pip."2.0.0".platforms]]
-platform = "11.7"
-# No override specs
-# url = "https://download.pytorch.org/whl/cu117"
-
-[[torch.pip."2.0.0".platforms]]
-platform = "rocm5.4.2"
-url = "https://download.pytorch.org/whl/rocm5.4.2"
-
-[[torch.pip."2.0.0".platforms]]
-platform = "11.8"
-url = "https://download.pytorch.org/whl/cu118"
-
-[[torch.pip."2.0.0".platforms]]
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.10.1"
 platform = "cpu"
-url = "https://download.pytorch.org/whl/cpu"
 
-[[torch.pip."2.0.0".platforms]]
-platform = "macOS"
-# No override specs
+[cpu.conda.packages]
+pytorch = "1.10.1"
+torchvision = "0.11.2"
+torchaudio = "0.10.1"
 
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.10.0"
+platform = "cpu"
 
-# 1.13.1
-[torch.pip."1.13.1"]
-torch = "1.13.1"
-torchvsion = "0.14.1"
+[cpu.conda.packages]
+pytorch = "1.10.0"
+torchvision = "0.11.0"
+torchaudio = "0.10.0"
+
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.9.0"
+platform = "cpu"
+
+[cpu.conda.packages]
+pytorch = "1.9.0"
+torchvision = "0.10.1"
+torchaudio = "0.9.1"
+
+[[cpu.conda]]
+installer = "conda"
+flags = ["cpuonly", "-c", "pytorch"]
+version = "1.9.0"
+platform = "cpu"
+
+[cpu.conda.packages]
+pytorch = "1.9.0"
+torchvision = "0.10.0"
+torchaudio = "0.9.0"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cpu"]
+version = "1.13.1"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.13.1+cpu"
+torchvision = "0.14.1+cpu"
 torchaudio = "0.13.1"
 
-[[torch.pip."1.13.1".platforms]]
-platform = "11.6"
-torch = "1.13.1+cu116"
-torchvision = "1.14.1+cu116"
-url = "https://download.pytorch.org/whl/cu116"
-
-[[torch.pip."1.13.1".platforms]]
-platform = "11.7"
-torch = "1.13.1+cu117"
-torchvision = "1.14.1+cu117"
-url = "https://download.pytorch.org/whl/cu117"
-
-[[torch.pip."1.13.1".platforms]]
+[[cpu.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cpu"]
+version = "1.13.0"
 platform = "cpu"
-torch = "1.13.1+cpu"
-torchvision = "1.14.1+cpu"
-url = "https://download.pytorch.org/whl/cpu"
 
-[[torch.pip."1.13.1".platforms]]
-platform = "macOS"
-# None
+[cpu.pip.packages]
+torch = "1.13.0+cpu"
+torchvision = "0.14.0+cpu"
+torchaudio = "0.13.0"
 
-# 1.12.1
-[torch.pip."1.12.1"]
-torch = "1.12.1"
-torchvision = "0.13.1"
-torchaudio = "0.12.1"
-
-[[torch.pip."1.12.1".platforms]]
-platform = "10.2"
-torch = "1.12.1+cu102"
-torchvision = "0.13.1+cu102"
-url = "https://download.pytorch.org/whl/cu102"
-
-[[torch.pip."1.12.1".platforms]]
-platform = "11.3"
-torch = "1.12.1+cu113"
-torchvision = "0.13.1+cu113"
-url = "https://download.pytorch.org/whl/cu113"
-
-[[torch.pip."1.12.1".platforms]]
-platform = "11.6"
-torch = "1.12.1+cu116"
-torchvision = "0.13.1+cu116"
-url = "https://download.pytorch.org/whl/cu116"
-
-[[torch.pip."1.12.1".platforms]]
+[[cpu.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cpu"]
+version = "1.12.1"
 platform = "cpu"
+
+[cpu.pip.packages]
 torch = "1.12.1+cpu"
 torchvision = "0.13.1+cpu"
-url = "https://download.pytorch.org/whl/cpu"
+torchaudio = "0.12.1"
 
-[[torch.pip."1.12.1".platforms]]
+[[cpu.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cpu"]
+version = "1.12.0"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.12.0+cpu"
+torchvision = "0.13.0+cpu"
+torchaudio = "0.12.0"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cpu"]
+version = "1.11.0"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.11.0+cpu"
+torchvision = "0.12.0+cpu"
+torchaudio = "0.11.0"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/cpu/torch_stable.html"]
+version = "1.10.1"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.10.1+cpu"
+torchvision = "0.11.2+cpu"
+torchaudio = "0.10.1"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.10.0+cpu"
+torchvision = "0.11.0+cpu"
+torchaudio = "0.10.0"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.1"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.9.1+cpu"
+torchvision = "0.10.1+cpu"
+torchaudio = "0.9.1"
+
+[[cpu.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "cpu"
+
+[cpu.pip.packages]
+torch = "1.9.0+cpu"
+torchvision = "0.10.0+cpu"
+torchaudio = "0.9.0"
+
+[cu102]
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.1"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.0"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.11.0"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.10.1"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.10.1"
+torchvision = "0.11.2"
+torchaudio = "0.10.1"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.10.0"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.10.0"
+torchvision = "0.11.0"
+torchaudio = "0.10.0"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.9.1"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.9.1"
+torchvision = "0.10.1"
+torchaudio = "0.9.1"
+cudatoolkit = "10.2"
+
+[[cu102.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.9.0"
+platform = "cu102"
+
+[cu102.conda.packages]
+pytorch = "1.9.0"
+torchvision = "0.10.0"
+torchaudio = "0.9.0"
+cudatoolkit = "10.2"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu102"]
+version = "1.12.1"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.12.1+cu102"
+torchvision = "0.13.1+cu102"
+torchaudio = "0.12.1"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu102"]
+version = "1.12.0"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.12.0+cu102"
+torchvision = "0.13.0+cu102"
+torchaudio = "0.12.0"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu102"]
+version = "1.11.0"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.11.0+cu102"
+torchvision = "0.12.0+cu102"
+torchaudio = "0.11.0"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/cu102/torch_stable.html"]
+version = "1.10.1"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.10.1+cu102"
+torchvision = "0.11.2+cu102"
+torchaudio = "0.10.1"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.10.0+cu102"
+torchvision = "0.11.0+cu102"
+torchaudio = "0.10.0"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.1"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.9.1+cu102"
+torchvision = "0.10.1+cu102"
+torchaudio = "0.9.0"
+
+[[cu102.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "cu102"
+
+[cu102.pip.packages]
+torch = "1.9.0+cu102"
+torchvision = "0.10.0+cu102"
+torchaudio = "0.9.0"
+
+[[cu111.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/cu113/torch_stable.html"]
+version = "1.10.1"
+platform = "cu111"
+
+[cu111.pip.packages]
+torch = "1.10.1+cu111"
+torchvision = "0.11.2+cu111"
+torchaudio = "0.10.1"
+
+[[cu111.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "cu111"
+
+[cu111.pip.packages]
+torch = "1.10.0+cu111"
+torchvision = "0.11.0+cu111"
+torchaudio = "0.10.0"
+
+[[cu111.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.1"
+platform = "cu111"
+
+[cu111.pip.packages]
+torch = "1.9.1+cu111"
+torchvision = "0.10.1+cu111"
+torchaudio = "0.9.1"
+
+[[cu111.pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "cu111"
+
+[cu111.pip.packages]
+torch = "1.9.0+cu111"
+torchvision = "0.10.0+cu111"
+torchaudio = "0.9.0"
+
+[cu113]
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.1"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.0"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.11.0"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.10.1"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.10.1"
+torchvision = "0.11.2"
+torchaudio = "0.10.1"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.10.0"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.10.0"
+torchvision = "0.11.0"
+torchaudio = "0.10.0"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.9.1"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.9.1"
+torchvision = "0.10.1"
+torchaudio = "0.9.1"
+cudatoolkit = "11.3"
+
+[[cu113.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.9.0"
+platform = "cu113"
+
+[cu113.conda.packages]
+pytorch = "1.9.0"
+torchvision = "0.10.0"
+torchaudio = "0.9.0"
+cudatoolkit = "11.3"
+
+[[cu113.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu113"]
+version = "1.12.1"
+platform = "cu113"
+
+[cu113.pip.packages]
+torch = "1.12.1+cu113"
+torchvision = "0.13.1+cu113"
+torchaudio = "0.12.1"
+
+[[cu113.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu113"]
+version = "1.12.0"
+platform = "cu113"
+
+[cu113.pip.packages]
+torch = "1.12.0+cu113"
+torchvision = "0.13.0+cu113"
+torchaudio = "0.12.0"
+
+[[cu113.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu113"]
+version = "1.11.0"
+platform = "cu113"
+
+[cu113.pip.packages]
+torch = "1.11.0+cu113"
+torchvision = "0.12.0+cu113"
+torchaudio = "0.11.0"
+
+[cu116]
+[[cu116.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "1.13.1"
+platform = "cu116"
+
+[cu116.conda.packages]
+pytorch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+pytorch-cuda = "11.6"
+
+[[cu116.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "1.13.0"
+platform = "cu116"
+
+[cu116.conda.packages]
+pytorch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
+pytorch-cuda = "11.6"
+
+[[cu116.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.12.1"
+platform = "cu116"
+
+[cu116.conda.packages]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+cudatoolkit = "11.6"
+
+[[cu116.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "conda-forge"]
+version = "1.12.0"
+platform = "cu116"
+
+[cu116.conda.packages]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+cudatoolkit = "11.6"
+
+[[cu116.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu116"]
+version = "1.13.1"
+platform = "cu116"
+
+[cu116.pip.packages]
+torch = "1.13.1+cu116"
+torchvision = "0.14.1+cu116"
+torchaudio = "0.13.1"
+
+[[cu116.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu116"]
+version = "1.13.0"
+platform = "cu116"
+
+[cu116.pip.packages]
+torch = "1.13.0+cu116"
+torchvision = "0.14.0+cu116"
+torchaudio = "0.13.0"
+
+[[cu116.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu116"]
+version = "1.12.1"
+platform = "cu116"
+
+[cu116.pip.packages]
+torch = "1.12.1+cu116"
+torchvision = "0.13.1+cu116"
+torchaudio = "0.12.1"
+
+[[cu116.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu116"]
+version = "1.12.0"
+platform = "cu116"
+
+[cu116.pip.packages]
+torch = "1.12.0+cu116"
+torchvision = "0.13.0+cu116"
+torchaudio = "0.12.0"
+
+[cu117]
+[[cu117.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "1.13.1"
+platform = "cu117"
+
+[cu117.conda.packages]
+pytorch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+pytorch-cuda = "11.7"
+
+[[cu117.conda]]
+installer = "conda"
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "1.13.0"
+platform = "cu117"
+
+[cu117.conda.packages]
+pytorch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
+pytorch-cuda = "11.7"
+
+[[cu117.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu117"]
+version = "1.13.1"
+platform = "cu117"
+
+[cu117.pip.packages]
+torch = "1.13.1+cu117"
+torchvision = "0.14.1+cu117"
+torchaudio = "0.13.1"
+
+[[cu117.pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/cu117"]
+version = "1.13.0"
+platform = "cu117"
+
+[cu117.pip.packages]
+torch = "1.13.0+cu117"
+torchvision = "0.14.0+cu117"
+torchaudio = "0.13.0"
+
+[macOS]
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.13.1"
 platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.13.0"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.1"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.12.1"
+torchvision = "0.13.1"
+torchaudio = "0.12.1"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.12.0"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.11.0"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.10.1"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.10.1"
+torchvision = "0.11.2"
+torchaudio = "0.10.1"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.10.0"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.10.0"
+torchvision = "0.11.0"
+torchaudio = "0.10.0"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.9.1"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.9.1"
+torchvision = "0.10.1"
+torchaudio = "0.9.1"
+
+[[macOS.conda]]
+installer = "conda"
+flags = ["-c", "pytorch"]
+version = "1.9.0"
+platform = "macOS"
+
+[macOS.conda.packages]
+pytorch = "1.9.0"
+torchvision = "0.10.0"
+torchaudio = "0.9.0"
+
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.13.1"
+platform = "macOS"
+
+[macOS.pip.packages]
+torch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.13.0"
+platform = "macOS"
+
+[macOS.pip.packages]
+torch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
+
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.12.1"
+platform = "macOS"
+
+[macOS.pip.packages]
 torch = "1.12.1"
 torchvision = "0.13.1"
 torchaudio = "0.12.1"
 
-# 1.12.0
-[torch.pip."1.12.0"]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.12.0"
+platform = "macOS"
+
+[macOS.pip.packages]
 torch = "1.12.0"
 torchvision = "0.13.0"
 torchaudio = "0.12.0"
 
-[[torch.pip."1.12.0".platforms]]
-platform = "10.2"
-torch = "1.12.0+cu102"
-torchvision = "0.13.0+cu102"
-url = "https://download.pytorch.org/whl/cu102"
-
-[[torch.pip."1.12.0".platforms]]
-platform = "11.3"
-torch = "1.12.0+cu113"
-torchvision = "0.13.0+cu113"
-url = "https://download.pytorch.org/whl/cu113"
-
-[[torch.pip."1.12.0".platforms]]
-platform = "11.6"
-torch = "1.12.0+cu116"
-torchvision = "0.13.0+cu116"
-url = "https://download.pytorch.org/whl/cu116"
-
-[[torch.pip."1.12.0".platforms]]
-platform = "cpu"
-torch = "1.12.0+cpu"
-torchvision = "0.13.0+cpu"
-url = "https://download.pytorch.org/whl/cpu"
-
-[[torch.pip."1.12.0".platforms]]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.11.0"
 platform = "macOS"
-# No override specs
 
-# Pytorch Geometric - pip
+[macOS.pip.packages]
+torch = "1.11.0"
+torchvision = "0.12.0"
+torchaudio = "0.11.0"
 
-[pygeo.pip."2.0.*"]
-torch_geometric = ""
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-
-[[pygeo.pip."2.0.*".platforms]]
-platform = "11.7"
-url = "https://data.pyg.org/whl/torch-2.0.0+cu117.html"
-
-[[pygeo.pip."2.0.*".platforms]]
-platform = "11.7"
-url = "https://data.pyg.org/whl/torch-2.0.0+cu118.html"
-
-[[pygeo.pip."2.0.*".platforms]]
-platform = "cpu"
-url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
-
-[[pygeo.pip."2.0.*".platforms]]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.10.1"
 platform = "macOS"
-url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
 
+[macOS.pip.packages]
+torch = "1.10.1"
+torchvision = "0.11.2"
+torchaudio = "0.10.1"
 
-[pygeo.pip."1.12.*"]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
-
-[[pygeo.pip."1.12.*".platforms]]
-platform = "10.2"
-url = "https://data.pyg.org/whl/torch-1.12.0+cu102.html"
-
-[[pygeo.pip."1.12.*".platforms]]
-platform = "11.3"
-url = "https://data.pyg.org/whl/torch-1.12.0+cu113.html"
-
-[[pygeo.pip."1.12.*".platforms]]
-platform = "11.6"
-url = "https://data.pyg.org/whl/torch-1.12.0+cu116.html"
-
-[[pygeo.pip."1.12.*".platforms]]
-platform = "cpu"
-url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
-
-[[pygeo.pip."1.12.*".platforms]]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.10.0"
 platform = "macOS"
-url = "https://data.pyg.org/whl/torch-1.12.0+cpu.html"
 
-[pygeo.pip."1.13.*"]
-pyg_lib = ""
-torch_scatter = ""
-torch_sparse = ""
-torch_cluster = ""
-torch_spline_conv = ""
-torch_geometric = ""
+[macOS.pip.packages]
+torch = "1.10.0"
+torchvision = "0.11.0"
+torchaudio = "0.10.0"
 
-[[pygeo.pip."1.13.*".platforms]]
-platform = "11.6"
-url = "https://data.pyg.org/whl/torch-1.13.0+cu116.html"
-
-[[pygeo.pip."1.13.*".platforms]]
-platform = "11.7"
-url = "https://data.pyg.org/whl/torch-1.13.0+cu117.html"
-
-[[pygeo.pip."1.13.*".platforms]]
-platform = "cpu"
-url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
-
-[[pygeo.pip."1.13.*".platforms]]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.9.1"
 platform = "macOS"
-url = "https://data.pyg.org/whl/torch-1.13.0+cpu.html"
 
-# Pytorch Geometric - conda
+[macOS.pip.packages]
+torch = "1.9.1"
+torchvision = "0.10.1"
+torchaudio = "0.9.1"
 
-[pygeo.conda."2.0.*"]
-pyg = ""
-
-[[pygeo.conda."2.0.*".platforms]]
-platform = "11.7"
-channels = '-c pyg'
-
-[[pygeo.conda."2.0.*".platforms]]
-platform = "11.8"
-channels = '-c pyg'
-
-[[pygeo.conda."2.0.*".platforms]]
-platform = "cpu"
-channels = '-c pyg'
-
-[[pygeo.conda."2.0.*".platforms]]
+[[macOS.pip]]
+installer = "pip"
+flags = []
+version = "1.9.0"
 platform = "macOS"
-channels = '-c pyg'
 
+[macOS.pip.packages]
+torch = "1.9.0"
+torchvision = "0.10.0"
+torchaudio = "0.9.0"
 
-[pygeo.conda."1.12.*"]
-pyg = ""
+[["rocm4.0.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.1"
+platform = "rocm4.0.1"
 
-[[pygeo.conda."1.12.*".platforms]]
-platform = "11.3"
-channels = '-c pyg'
+["rocm4.0.1".pip.packages]
+torch = "1.10.1+rocm4.0.1"
+torchvision = "0.10.2+rocm4.0.1"
+torchaudio = "0.10.1"
 
-[[pygeo.conda."1.12.*".platforms]]
-platform = "11.6"
-channels = '-c pyg'
+[["rocm4.0.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "rocm4.0.1"
 
-[[pygeo.conda."1.12.*".platforms]]
-platform = "cpu"
-channels = '-c pyg'
+["rocm4.0.1".pip.packages]
+torch = "1.10.0+rocm4.0.1"
+torchvision = "0.10.1+rocm4.0.1"
+torchaudio = "0.10.0"
 
-[[pygeo.conda."1.12.*".platforms]]
-platform = "macOS"
-channels = '-c pyg'
+[["rocm4.0.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.1"
+platform = "rocm4.0.1"
 
+["rocm4.0.1".pip.packages]
+torch = "1.9.1+rocm4.0.1"
+torchvision = "0.10.1+rocm4.0.1"
+torchaudio = "0.9.1"
 
-[pygeo.conda."1.13.*"]
-pyg = ""
+[["rocm4.0.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "rocm4.0.1"
 
-[[pygeo.conda."1.13.*".platforms]]
-platform = "11.6"
-channels = '-c pyg'
+["rocm4.0.1".pip.packages]
+torch = "1.9.0+rocm4.0.1"
+torchvision = "0.10.0+rocm4.0.1"
+torchaudio = "0.9.0"
 
-[[pygeo.conda."1.13.*".platforms]]
-platform = "11.7"
-channels = '-c pyg'
+[["rocm4.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.1"
+platform = "rocm4.1"
 
-[[pygeo.conda."1.13.*".platforms]]
-platform = "cpu"
-channels = '-c pyg'
+["rocm4.1".pip.packages]
+torch = "1.10.1+rocm4.1"
+torchvision = "0.11.2+rocm4.1"
+torchaudio = "0.10.1"
 
-[[pygeo.conda."1.13.*".platforms]]
-platform = "macOS"
-channels = '-c pyg'
+[["rocm4.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "rocm4.1"
+
+["rocm4.1".pip.packages]
+torch = "1.10.0+rocm4.1"
+torchvision = "0.11.0+rocm4.1"
+torchaudio = "0.10.0"
+
+[["rocm4.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "rocm4.1"
+
+["rocm4.1".pip.packages]
+torch = "1.9.0+rocm4.1"
+torchvision = "0.10.1+rocm4.1"
+torchaudio = "0.9.1"
+
+[["rocm4.1".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "rocm4.1"
+
+["rocm4.1".pip.packages]
+torch = "1.9.0+rocm4.1"
+torchvision = "0.10.0+rocm4.1"
+torchaudio = "0.9.0"
+
+[["rocm4.2".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/rocm4.2/torch_stable.html"]
+version = "1.10.1"
+platform = "rocm4.2"
+
+["rocm4.2".pip.packages]
+torch = "1.10.1+rocm4.2"
+torchvision = "0.11.2+rocm4.2"
+torchaudio = "0.10.1"
+
+[["rocm4.2".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.10.0"
+platform = "rocm4.2"
+
+["rocm4.2".pip.packages]
+torch = "1.10.0+rocm4.2"
+torchvision = "0.11.0+rocm4.2"
+torchaudio = "0.10.0"
+
+[["rocm4.2".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "rocm4.2"
+
+["rocm4.2".pip.packages]
+torch = "1.9.0+rocm4.2"
+torchvision = "0.10.1+rocm4.2"
+torchaudio = "0.9.1"
+
+[["rocm4.2".pip]]
+installer = "pip"
+flags = ["-f", "https://download.pytorch.org/whl/torch_stable.html"]
+version = "1.9.0"
+platform = "rocm4.2"
+
+["rocm4.2".pip.packages]
+torch = "1.9.0+rocm4.2"
+torchvision = "0.10.0+rocm4.2"
+torchaudio = "0.9.0"
+
+[["rocm4.5.2".pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/rocm4.5.2"]
+version = "1.11.0"
+platform = "rocm4.5.2"
+
+["rocm4.5.2".pip.packages]
+torch = "1.11.0+rocm4.5.2"
+torchvision = "0.12.0+rocm4.5.2"
+torchaudio = "0.11.0"
+
+[["rocm5.1.1".pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/rocm5.1.1"]
+version = "1.12.1"
+platform = "rocm5.1.1"
+
+["rocm5.1.1".pip.packages]
+torch = "1.12.1+rocm5.1.1"
+torchvision = "0.13.1+rocm5.1.1"
+torchaudio = "0.12.1"
+
+[["rocm5.1.1".pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/rocm5.1.1"]
+version = "1.12.0"
+platform = "rocm5.1.1"
+
+["rocm5.1.1".pip.packages]
+torch = "1.12.0+rocm5.1.1"
+torchvision = "0.13.0+rocm5.1.1"
+torchaudio = "0.12.0"
+
+[["rocm5.2".pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/rocm5.2"]
+version = "1.13.1"
+platform = "rocm5.2"
+
+["rocm5.2".pip.packages]
+torch = "1.13.1+rocm5.2"
+torchvision = "0.14.1+rocm5.2"
+torchaudio = "0.13.1"
+
+[["rocm5.2".pip]]
+installer = "pip"
+flags = ["--extra-index-url", "https://download.pytorch.org/whl/rocm5.2"]
+version = "1.13.0"
+platform = "rocm5.2"
+
+["rocm5.2".pip.packages]
+torch = "1.13.0+rocm5.2"
+torchvision = "0.14.0+rocm5.2"
+torchaudio = "0.13.0"

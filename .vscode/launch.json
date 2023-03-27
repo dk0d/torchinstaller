@@ -5,11 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Module",
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "pytest",
             "type": "python",
             "request": "launch",
             "module": "pytest",
-            "args": ["--pdb"],
+            "args": [
+                "--pdb"
+            ],
             "justMyCode": true
         },
         {
@@ -21,11 +31,11 @@
             "args": [
                 "-pt",
                 "-c",
-                "11.6",
+                "cu116",
                 "-l",
                 "-pyg",
                 "-u",
-                "pip"
+                "mamba"
             ],
             // "args": [ "-d" ],
             "justMyCode": true
