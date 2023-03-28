@@ -17,23 +17,23 @@ pip install torchinstaller
 
 ```bash
 $ torchinstall -h
-usage: torchinstall [-h] [--pytorch] [--pyg] [--pyg-lib-source] [--cuda {10.2,11.3,11.6,11.7,11.8,rocm5.4.2}] [--lightning] [--use {pip,conda,mamba,poetry}] [-install]
+usage: torchinstall [-h] [--pytorch [PYTORCH]] [--pyg] [--pyg-lib-source] [--cuda {cu102,cu111,cu113,cu116,cu117,cu118,rocm4.0.1,rocm4.1,rocm4.2,rocm4.5.2,rocm5.1.1,rocm5.2,rocm5.4.2}] [--lightning] [--use {pip,conda,mamba,poetry}] [-install]
 
 options:
   -h, --help            show this help message and exit
-  --pytorch, -pt        Flag to install pytorch
+  --pytorch [PYTORCH], -pt [PYTORCH]
+                        Flag to install pytorch, can optionally specify a desired version. Must be full semantic version, e.g. 1.13.1, not 1.13, or `latest`
   --pyg, -pyg           Flag to install pytorch-geometric
   --pyg-lib-source, -pyg-src
-                        Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs, they recommend installing from source
-  --cuda {10.2,11.3,11.6,11.7,11.8,rocm5.4.2}, -c {10.2,11.3,11.6,11.7,11.8,rocm5.4.2}
-                        Manually specify platform version (cuda or rocm) instead of auto-detect (useful for cluster installations).
+                        Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs. They recommend installing from source
+  --cuda {cu102,cu111,cu113,cu116,cu117,cu118,rocm4.0.1,rocm4.1,rocm4.2,rocm4.5.2,rocm5.1.1,rocm5.2,rocm5.4.2}, -c {cu102,cu111,cu113,cu116,cu117,cu118,rocm4.0.1,rocm4.1,rocm4.2,rocm4.5.2,rocm5.1.1,rocm5.2,rocm5.4.2}
+                        Manually specify platform version (cuda or rocm) instead ofauto-detect (useful for cluster installations).
   --lightning, -l       Flag to install pytorch-lightning
   --use {pip,conda,mamba,poetry}, -u {pip,conda,mamba,poetry}
                         set command to install with.
   -install, -i          Run installation (default is to dry run commands)
 ```
 
-> Note: pytorch-geometric can be problematic to install.  Installing from source has been added to facilitate installation, but referring to their documentation may be the only way to address errors if they occur.
+> Note: pytorch-geometric can be problematic to install. Installing from source has been added to facilitate installation, but referring to their documentation may be necessary to address errors if they occur.
 
 > Note: poetry support is a work in-progress and is unstable
-
