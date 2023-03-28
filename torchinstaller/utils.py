@@ -219,9 +219,11 @@ def getCudaVersion(availableVersions):
         result = subprocess.run(["nvidia-smi"], capture_output=True)
         output = str(result.stdout, encoding="utf-8")
         version = re.search(r"CUDA\s+Version:\s+([\d\.]+)\s+", output)
+        cudaVersions = list(filter(lambda v: 'cu' in v), availableVersions)
         if version is not None:
             try:
-                return closestLatestVersion(version.group(1), availableVersions), version.group(1)
+                cuVersion = f'cu{version.group(1).replace(".", "")}'
+                return closestLatestVersion(cuVersion, cudaVersions), version.group(1)
             except Exception:
                 pass
     return "cpu", None
