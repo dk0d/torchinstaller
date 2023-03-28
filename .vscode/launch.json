@@ -29,7 +29,7 @@
             "module": "torchinstaller",
             "console": "integratedTerminal",
             "args": [
-                "-pt", "1.13.0",
+                "-pt",  
                 "-c",
                 "cu116",
                 "-l",

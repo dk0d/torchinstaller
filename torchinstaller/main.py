@@ -107,6 +107,7 @@ def main():
 
     getPythonVersion()
     system_platform = getSystemPlatform()
+    system_platform = 'linux'
 
     platform, detected = getCudaVersion(availableCudaVersions(config))
 

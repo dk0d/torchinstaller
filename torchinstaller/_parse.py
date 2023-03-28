@@ -4,15 +4,13 @@ from pathlib import Path
 import tomlkit
 
 
-def parse_commands(name="torch-commands.md"):
+def parse_commands(name="commands.md"):
 
     src_dir = Path('./torchinstaller/config').resolve()
     if not src_dir.exists():
         src_dir = Path("./config").resolve()
 
     src_path = src_dir / name
-
-    print(src_path)
 
     platforms = set(
         [p.group(1) for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())]
@@ -82,15 +80,15 @@ def parse_commands(name="torch-commands.md"):
             elif "#" not in line:
                 currentPlatform = None
 
-    outDir = src_path.parent / "torch-commands.toml"
+    outDir = src_path.parent / "commands.toml"
 
     with outDir.open("w") as fp:
         tomlkit.dump(output, fp)
+
     return output
 
 
-torch = parse_commands()
-pyg = parse_commands('pyg-commands.md')
+_ = parse_commands()
 
 
 

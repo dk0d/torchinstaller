@@ -4,6 +4,83 @@ import tomlkit
 import subprocess
 import re
 
+VALID_PYG_BUILDS = [
+    "torch-1.10.0+cpu",
+    "torch-1.10.1+cpu",
+    "torch-1.10.2+cpu",
+    "torch-1.10.0+cu102",
+    "torch-1.10.1+cu102",
+    "torch-1.10.2+cu102",
+    "torch-1.10.0+cu113",
+    "torch-1.10.1+cu113",
+    "torch-1.10.2+cu113",
+    "torch-1.10.0+cu111",
+    "torch-1.10.1+cu111",
+    "torch-1.10.2+cu111",
+    "torch-1.11.0+cpu",
+    "torch-1.11.0+cu102",
+    "torch-1.11.0+cu113",
+    "torch-1.11.0+cu115",
+    "torch-1.12.0+cpu",
+    "torch-1.12.1+cpu",
+    "torch-1.12.0+cu102",
+    "torch-1.12.1+cu102",
+    "torch-1.12.0+cu113",
+    "torch-1.12.1+cu113",
+    "torch-1.12.0+cu116",
+    "torch-1.12.1+cu116",
+    "torch-1.13.0+cpu",
+    "torch-1.13.1+cpu",
+    "torch-1.13.0+cu116",
+    "torch-1.13.1+cu116",
+    "torch-1.13.0+cu117",
+    "torch-1.13.1+cu117",
+    "torch-1.4.0+cpu",
+    "torch-1.4.0+cu100",
+    "torch-1.4.0+cu101",
+    "torch-1.4.0+cu92",
+    "torch-1.4.0",
+    "torch-1.5.0+cpu",
+    "torch-1.5.0+cu101",
+    "torch-1.5.0+cu102",
+    "torch-1.5.0+cu92",
+    "torch-1.5.0",
+    "torch-1.6.0+cpu",
+    "torch-1.6.0+cu101",
+    "torch-1.6.0+cu102",
+    "torch-1.6.0+cu92",
+    "torch-1.6.0",
+    "torch-1.7.0+cpu",
+    "torch-1.7.1+cpu",
+    "torch-1.7.0+cu101",
+    "torch-1.7.1+cu101",
+    "torch-1.7.0+cu102",
+    "torch-1.7.1+cu102",
+    "torch-1.7.0+cu110",
+    "torch-1.7.1+cu110",
+    "torch-1.7.0+cu92",
+    "torch-1.7.1+cu92",
+    "torch-1.7.0",
+    "torch-1.7.1",
+    "torch-1.8.0+cpu",
+    "torch-1.8.1+cpu",
+    "torch-1.8.0+cu101",
+    "torch-1.8.1+cu101",
+    "torch-1.8.0+cu102",
+    "torch-1.8.1+cu102",
+    "torch-1.8.0+cu111",
+    "torch-1.8.1+cu111",
+    "torch-1.9.0+cpu",
+    "torch-1.9.1+cpu",
+    "torch-1.9.0+cu102",
+    "torch-1.9.1+cu102",
+    "torch-1.9.0+cu111",
+    "torch-1.9.1+cu111",
+    "torch-2.0.0+cpu",
+    "torch-2.0.0+cu117",
+    "torch-2.0.0+cu118",
+]
+
 
 def handleTorchCommand(installer, command: dict, run_install: bool):
     commandArgs = [installer, "install"]
@@ -56,7 +133,11 @@ def handlePyGCommand(installer, version, platform, pyg_lib_source, run_install, 
                 "torch_spline_conv",
             ]
         )
-        url = f"https://data.pyg.org/whl/torch-{version}+{platform}.html"
+        torchVersion = f"torch-{version}+{platform}"
+        if torchVersion not in VALID_PYG_BUILDS:
+            print(f"[bold yellow]Unsupported Pytorch-Geometric platform: {torchVersion}")
+            return
+        url = f"https://data.pyg.org/whl/{torchVersion}.html"
         cArgs.extend(["-f", url])
 
     run(cArgs, run_install)
@@ -88,15 +169,13 @@ def getCommandForPlatform(config, command_key, version, platform):
     try:
         command = list(filter(lambda v: v["version"] == version, commands))[0]
         return command
-    except Exception as e:
-        print(f"[red bold]Could not find version{version}...")
-        print("Available versions\n" + "-" * 80)
+    except Exception:
+        print(f"[red bold]Could not find version {version} for requested platform")
+        print(f"\nAvailable {platform} python versions\n" + "-" * 80)
         for c in commands:
             print(f"- {c['version']}")
         print("-" * 80)
         exit(0)
-
-    raise Exception(f"platform not found: {platform}")
 
 
 def remove_none(d):
