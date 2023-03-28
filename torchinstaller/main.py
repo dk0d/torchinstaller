@@ -53,10 +53,11 @@ def main():
         dest="pyg_lib_source",
     )
     parser.add_argument(
-        "--cuda",
+        "--compute-platform",
         "-c",
         type=str,
         default=None,
+        dest="cuda",
         choices=availableCudaVersions(config),
         help=(
             "Manually specify platform version (cuda or rocm) instead of"
