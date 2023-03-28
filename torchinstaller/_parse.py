@@ -4,15 +4,21 @@ from pathlib import Path
 import tomlkit
 
 
-def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").resolve()):
+def parse_commands(name="torch-commands.md"):
 
-    if not src_path.exists():
-        src_path = Path("./config/torch-commands.md").resolve()
+    src_dir = Path('./torchinstaller/config').resolve()
+    if not src_dir.exists():
+        src_dir = Path("./config").resolve()
+
+    src_path = src_dir / name
+
     print(src_path)
 
-    platforms = set([p.group(1) for p in re.finditer(r"\+([\d\w\.]+)", src_path.read_text())])
+    platforms = set(
+        [p.group(1) for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())]
+    )
     platforms.add("macOS")
-    platforms = list(platforms)
+    platforms = [p for p in platforms if '.html' not in p]
     platforms.sort()
 
     currentPlatform = ""
@@ -23,7 +29,7 @@ def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").re
             continue
         command = re.search(r"^(\w+) install (.+)", line)
         if command is not None:
-            entry = dict(installer=command.group(1), flags=[], packages = {})
+            entry = dict(installer=command.group(1), flags=[], packages={})
             packages = command.group(2).split(" ")
             for package in packages:
                 if "==" in package:
@@ -31,7 +37,6 @@ def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").re
                     vparts = v.split("+")
                     if k in ["torch", "pytorch"]:
                         entry["version"] = vparts[0]
-
                     if len(vparts) > 1:
                         entry["platform"] = vparts[-1]
                 elif "=" in package:
@@ -43,11 +48,7 @@ def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").re
                 if "cuda" in k:
                     entry["platform"] = f"cu{v.replace('.', '')}"
 
-                if entry.get("platform", None) is None and currentPlatform is not None:
-                    entry["platform"] = currentPlatform
-                    currentPlatform = None
-
-                entry['packages'][k] = v
+                entry["packages"][k] = v
 
             if "cpuonly" in entry["flags"]:
                 entry["platform"] = "cpu"
@@ -57,6 +58,19 @@ def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").re
                     if p in line:
                         entry["platform"] = p
                         break
+
+            if "platform" not in entry and currentPlatform is not None:
+                entry["platform"] = currentPlatform
+                currentPlatform = None
+
+            if "platform" not in entry:
+                for f in entry["flags"]:
+                    p = re.search(r"whl/([\w\d\.]+)", f)
+                    if p is not None:
+                        entry["platform"] = p.group(1)
+
+            if "version" not in entry:
+                entry["version"] = "latest"
 
             if entry["installer"] not in output[entry["platform"]]:
                 output[entry["platform"]][entry["installer"]] = [entry]
@@ -68,11 +82,17 @@ def parse_commands(src_path=Path("./torchinstaller/config/torch-commands.md").re
             elif "#" not in line:
                 currentPlatform = None
 
-    outDir = src_path.parent / "commands.toml"
+    outDir = src_path.parent / "torch-commands.toml"
 
     with outDir.open("w") as fp:
         tomlkit.dump(output, fp)
+    return output
 
 
-parse_commands()
+torch = parse_commands()
+pyg = parse_commands('pyg-commands.md')
+
+
+
+
 # %%

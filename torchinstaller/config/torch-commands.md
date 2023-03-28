@@ -1,3 +1,29 @@
+# 2.0.0
+
+# macOS - MPS acceleration is available on MacOS 12.3+
+
+conda install pytorch torchvision torchaudio -c pytorch
+
+# Linux
+
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
+# macOS - MPS acceleration is available on MacOS 12.3+
+
+pip install torch torchvision torchaudio
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
 # v1.13.1
 
 # macOS

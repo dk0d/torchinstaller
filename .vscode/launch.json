@@ -29,13 +29,13 @@
             "module": "torchinstaller",
             "console": "integratedTerminal",
             "args": [
-                "-pt",
+                "-pt", "1.13.0",
                 "-c",
                 "cu116",
                 "-l",
                 "-pyg",
                 "-u",
-                "mamba"
+                "pip"
             ],
             // "args": [ "-d" ],
             "justMyCode": true

@@ -18,6 +18,9 @@ from .utils import (
 
 
 def main():
+
+    LATEST_VERSION = "2.0.0"
+
     configPath = Path(__file__).parent / "config" / "commands.toml"
     config = loadConfig(configPath)
     parser = argparse.ArgumentParser()
@@ -27,7 +30,7 @@ def main():
         "-pt",
         help=(
             "Flag to install pytorch, can optionally specify a desired version."
-            " Must be full semantic version, e.g. 1.13.1, not 1.13"
+            " Must be full semantic version, e.g. 1.13.1, not 1.13, or `latest`"
         ),
         nargs="?",
         const="latest",
@@ -44,8 +47,8 @@ def main():
         "--pyg-lib-source",
         "-pyg-src",
         help=(
-            "Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs"
-            "they recommend installing from source"
+            "Flag to install PyG from source. i.e. PyG doesn't support wheels for M1/M2 macs."
+            " They recommend installing from source"
         ),
         default=False,
         action="store_true",
@@ -128,30 +131,15 @@ def main():
     # try:
 
     if args.pytorch is not None:
-        commands = config[platform][command_key]
-        commands.sort(key=lambda x: Version(x["version"]))
-        if args.pytorch == "latest":
-            command = commands[-1]  # latest
-        else:
-            try:
-                command = list(filter(lambda v: v["version"] == args.pytorch, commands))[0]
-            except Exception as e:
-                print(f"[red bold]Could not find version{args.pytorch}...")
-                print("Available versions\n" + "-" * 80)
-                for c in commands:
-                    print(f"- {c['version']}")
-                print('-' * 80)
-                exit(0)
+        command = getCommandForPlatform(config, command_key, args.pytorch, platform)
         handleTorchCommand(installer, command, args.install)
 
     if args.lightning:
         handleLightningCommand(installer, args.install)
 
     if args.pyg:
-        pyg_configPath = Path(__file__).parent / "config" / "pyg-commands.toml"
-        pyg_config = loadConfig(pyg_configPath)
-        pygCommand = getCommandForPlatform(pyg_config["pygeo"][command_key], platform)
-        handlePyGCommand(installer, pygCommand, args.pyg_lib_source, args.install)
+        version = LATEST_VERSION if args.pytorch == "latest" else args.pytorch
+        handlePyGCommand(installer, version, platform, args.pyg_lib_source, args.install)
 
     if not any([args.pytorch, args.lightning, args.pyg]):
         print("[red bold]NO COMMANDS Selected")

@@ -7,7 +7,7 @@ import re
 
 def handleTorchCommand(installer, command: dict, run_install: bool):
     commandArgs = [installer, "install"]
-    commandArgs.extend(commandToStrings(command['packages']))
+    commandArgs.extend(commandToStrings(command["packages"]))
     commandArgs.extend(command.get("flags", []))
     run(commandArgs, run_install)
 
@@ -24,25 +24,40 @@ def handleLightningCommand(installer, run_install):
             run(lightning, run_install)
 
 
-def handlePyGCommand(installer, command, pyg_lib_source, run_install):
-    cArgs = [installer, "install"]
+def handlePyGCommand(installer, version, platform, pyg_lib_source, run_install, install_optionals=True):
 
-    try:
-        url = command["url"]
-    except Exception:
-        url = None
+    cArgs = [
+        installer,
+        "install",
+        "torch_geometric",
+    ]
+
+    if installer in ["mamba", "conda"]:
+        cArgs.extend(["pyg", "-c", "pyg"])
+        run(cArgs, run_install)
+        return
+
+    if platform.lower() == "macos":
+        platform = "cpu"
 
     if pyg_lib_source:
         cArgs.append("git+https://github.com/pyg-team/pyg-lib.git")
         run(cArgs, run_install)
         cArgs = cArgs[:-1]
-        command.pop("pyg_lib")
-        command.pop("url")
+    else:
+        cArgs.append("pyg-lib")
 
-    cArgs.extend(commandToStrings(command))
-
-    if url is not None:
-        cArgs.extend(["-f", command["url"]])
+    if install_optionals:
+        cArgs.extend(
+            [
+                "torch_scatter",
+                "torch_sparse",
+                "torch_cluster",
+                "torch_spline_conv",
+            ]
+        )
+        url = f"https://data.pyg.org/whl/torch-{version}+{platform}.html"
+        cArgs.extend(["-f", url])
 
     run(cArgs, run_install)
 
@@ -67,16 +82,19 @@ def handlePoetryCommand(command, run_install):
 
 # Related to commands.bak.toml and pyg-commands.toml
 
-def getCommandForPlatform(package_spec, platform):
-    command = {}
-    versions = list(package_spec.keys())
-    versions.sort(reverse=True)
-    for version in versions:
-        for entry in package_spec[version]["platforms"]:
-            if entry["platform"].startswith(platform):
-                command.update(**{c: v for c, v in package_spec[version].items() if c != "platforms"})
-                command.update(**{k: v for k, v in entry.items() if k != "platform"})
-                return command
+
+def getCommandForPlatform(config, command_key, version, platform):
+    commands = config[platform][command_key]
+    try:
+        command = list(filter(lambda v: v["version"] == version, commands))[0]
+        return command
+    except Exception as e:
+        print(f"[red bold]Could not find version{version}...")
+        print("Available versions\n" + "-" * 80)
+        for c in commands:
+            print(f"- {c['version']}")
+        print("-" * 80)
+        exit(0)
 
     raise Exception(f"platform not found: {platform}")
 
