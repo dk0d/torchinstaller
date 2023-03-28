@@ -2,8 +2,6 @@ from pathlib import Path
 from rich import print
 import argparse
 
-from packaging.version import Version
-
 from .utils import (
     loadConfig,
     availableCudaVersions,

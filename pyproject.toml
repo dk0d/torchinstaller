@@ -1,6 +1,6 @@
 [project]
 name = "torchinstaller"
-version = "0.5.1"
+version = "0.5.2"
 description = "Simple utility to install pytorch, pytorch-geometric and pytorch-lightning. Detects CUDA version automatically."
 authors = [
     { name = "Daniel Capecci", email = "7775585+dk0d@users.noreply.github.com" },
