@@ -105,7 +105,6 @@ def main():
 
     getPythonVersion()
     system_platform = getSystemPlatform()
-    system_platform = 'linux'
 
     platform, detected = getCudaVersion(availableCudaVersions(config))
 
@@ -117,8 +116,8 @@ def main():
             print(f"[blue bold]System CUDA: {detected}\nUsing CUDA: {platform}")
         else:
             platform = args.cuda
-            print(f"[yellow bold]User specified CUDA: {platform}")
-            print(f"[blue bold]System CUDA: {detected}\nUsing CUDA: {platform}")
+            print(f"User specified CUDA: [yellow bold]{platform}")
+            print(f"System CUDA: [blue bold]{detected}[/blue bold]\nUsing CUDA: [blue bold]{platform}")
 
     if platform in ["cpu"]:
         print("[orange bold]CPU ONLY")

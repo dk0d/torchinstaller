@@ -200,7 +200,7 @@ def loadConfig(path: Path) -> dict:
 
 
 def closestLatestVersion(cudaVersion, availableVersions):
-    goodVersions = list(filter(lambda x: x >= cudaVersion, availableVersions.keys()))
+    goodVersions = list(filter(lambda x: x >= cudaVersion, availableVersions))
     goodVersions.sort()
     return goodVersions[0]
 
@@ -218,12 +218,13 @@ def getCudaVersion(availableVersions):
     if hasCommand("nvidia-smi"):
         result = subprocess.run(["nvidia-smi"], capture_output=True)
         output = str(result.stdout, encoding="utf-8")
-        version = re.search(r"CUDA\s+Version:\s+([\d\.]+)\s+", output)
-        cudaVersions = list(filter(lambda v: 'cu' in v), availableVersions)
+        version = re.search(r"CUDA\s+Version:\s+([\d\.]+)\s*", output)
+        cudaVersions = list(filter(lambda v: "cu" in v, availableVersions))
         if version is not None:
             try:
                 cuVersion = f'cu{version.group(1).replace(".", "")}'
-                return closestLatestVersion(cuVersion, cudaVersions), version.group(1)
+                closest = closestLatestVersion(cuVersion, cudaVersions)
+                return closest, cuVersion
             except Exception:
                 pass
     return "cpu", None
