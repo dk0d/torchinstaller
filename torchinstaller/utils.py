@@ -171,7 +171,7 @@ def getCommandForPlatform(config, command_key, version, platform):
         return command
     except Exception:
         print(f"[red bold]Could not find version {version} for requested platform")
-        print(f"\nAvailable {platform} python versions\n" + "-" * 80)
+        print(f"\nAvailable pytorch versions on {platform}\n" + "-" * 80)
         for c in commands:
             print(f"- {c['version']}")
         print("-" * 80)
