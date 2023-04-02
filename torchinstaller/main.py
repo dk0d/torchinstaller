@@ -16,7 +16,6 @@ from .utils import (
 
 
 def main():
-
     LATEST_VERSION = "2.0.0"
 
     configPath = Path(__file__).parent / "config" / "commands.toml"
@@ -114,11 +113,11 @@ def main():
         platform = "macOS"
     else:
         if args.cuda is None:
-            print(f"[blue bold]System CUDA: {detected}\nUsing CUDA: {platform}")
+            print(f"[blue bold]System platform: {detected}\nUsing platform: {platform}")
         else:
             platform = args.cuda
-            print(f"User specified CUDA: [yellow bold]{platform}")
-            print(f"System CUDA: [blue bold]{detected}[/blue bold]\nUsing CUDA: [blue bold]{platform}")
+            print(f"User specified platform: [yellow bold]{platform}")
+            print(f"System platform: [blue bold]{detected}[/blue bold]\nUsing platform: [blue bold]{platform}")
 
     if platform in ["cpu"]:
         print("[orange bold]CPU ONLY")
@@ -128,7 +127,6 @@ def main():
     print("-" * 100)
 
     try:
-
         if args.pytorch is not None:
             command = getCommandForPlatform(config, command_key, args.pytorch, platform)
             handleTorchCommand(installer, command, args.install)

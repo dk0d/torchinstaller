@@ -1,22 +1,24 @@
-#%%
+# %%
 import re
 from pathlib import Path
 import tomlkit
 
 
 def parse_commands(name="commands.md"):
-
-    src_dir = Path('./torchinstaller/config').resolve()
+    src_dir = Path("./torchinstaller/config").resolve()
     if not src_dir.exists():
         src_dir = Path("./config").resolve()
 
     src_path = src_dir / name
 
     platforms = set(
-        [p.group(1) for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())]
+        [
+            p.group(1)
+            for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())
+        ]
     )
     platforms.add("macOS")
-    platforms = [p for p in platforms if '.html' not in p]
+    platforms = [p for p in platforms if ".html" not in p]
     platforms.sort()
 
     currentPlatform = ""
@@ -89,8 +91,6 @@ def parse_commands(name="commands.md"):
 
 
 _ = parse_commands()
-
-
 
 
 # %%

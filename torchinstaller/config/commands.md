@@ -16,6 +16,8 @@ conda install pytorch torchvision torchaudio cpuonly -c pytorch
 
 pip install torch torchvision torchaudio
 
+# Linux
+
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
