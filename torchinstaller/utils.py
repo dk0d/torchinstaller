@@ -102,7 +102,6 @@ def handleLightningCommand(installer, run_install):
 
 
 def handlePyGCommand(installer, version, platform, pyg_lib_source, run_install, install_optionals=True):
-
     cArgs = [
         installer,
         "install",
@@ -123,6 +122,11 @@ def handlePyGCommand(installer, version, platform, pyg_lib_source, run_install, 
         cArgs = cArgs[:-1]
     else:
         cArgs.append("pyg-lib")
+
+    if version is None or version == "latest":
+        match = re.search(r"torch-([\d\.]+)", VALID_PYG_BUILDS[-1])
+        if match is not None:
+            version = match.group(1)
 
     if install_optionals:
         cArgs.extend(

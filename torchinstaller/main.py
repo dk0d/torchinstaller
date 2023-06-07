@@ -86,7 +86,7 @@ def main():
     )
 
     try:
-        args = parser.parse_args()
+        args, unk = parser.parse_known_args()
     except Exception as e:
         print("-" * 80)
         print("[red bold]Argument Error")
