@@ -121,7 +121,7 @@ def handlePyGCommand(installer, version, platform, pyg_lib_source, run_install, 
         run(cArgs, run_install)
         cArgs = cArgs[:-1]
     else:
-        cArgs.append("pyg-lib")
+        cArgs.append("pyg_lib")
 
     if version is None or version == "latest":
         match = re.search(r"torch-([\d\.]+)", VALID_PYG_BUILDS[-1])
