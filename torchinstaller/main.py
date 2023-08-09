@@ -135,8 +135,7 @@ def main():
             handleLightningCommand(installer, args.install)
 
         if args.pyg:
-            version = LATEST_VERSION if args.pytorch == "latest" else args.pytorch
-            handlePyGCommand(installer, version, platform, args.pyg_lib_source, args.install)
+            handlePyGCommand(installer, args.pytorch, platform, args.pyg_lib_source, args.install)
 
         if not any([args.pytorch, args.lightning, args.pyg]):
             print("[red bold]NO COMMANDS Selected")
