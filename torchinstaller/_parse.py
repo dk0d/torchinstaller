@@ -11,12 +11,7 @@ def parse_commands(name="commands.md"):
 
     src_path = src_dir / name
 
-    platforms = set(
-        [
-            p.group(1)
-            for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())
-        ]
-    )
+    platforms = set([p.group(1) for p in re.finditer(r"(?:\+|whl/)([\d\w\.]+)", src_path.read_text())])
     platforms.add("macOS")
     platforms = [p for p in platforms if ".html" not in p]
     platforms.sort()
@@ -29,7 +24,7 @@ def parse_commands(name="commands.md"):
             continue
         command = re.search(r"^(\w+) install (.+)", line)
         if command is not None:
-            entry = dict(installer=command.group(1), flags=[], packages={})
+            entry: dict = dict(installer=command.group(1), flags=[], packages={})
             packages = command.group(2).split(" ")
             for package in packages:
                 if "==" in package:
