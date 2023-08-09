@@ -29,7 +29,6 @@ line-length = 120
 [tool.ruff]
 line-length = 120
 
-
 [tool.hatch.version]
 source = 'regex_commit'
 path = "torchinstaller/__version__.py"
