@@ -16,7 +16,7 @@ from .utils import (
 
 
 def main():
-    LATEST_VERSION = "2.0.0"
+    LATEST_VERSION = "2.0.1"
 
     configPath = Path(__file__).parent / "config" / "commands.toml"
     config = loadConfig(configPath)
