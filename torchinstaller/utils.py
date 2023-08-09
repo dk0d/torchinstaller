@@ -91,9 +91,9 @@ def handleTorchCommand(installer, command: dict, run_install: bool):
 
 def handleLightningCommand(installer, run_install):
     if installer in ["poetry"]:
-        run(["poetry", "add", "pytorch-lightning"], run_install)
+        run(["poetry", "add", "lightning"], run_install)
     else:
-        lightning = [installer, "install", "pytorch-lightning"]
+        lightning = [installer, "install", "lightning"]
         if installer == "pip":
             run(lightning, run_install)
         else:
