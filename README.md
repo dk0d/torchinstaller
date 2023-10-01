@@ -33,7 +33,7 @@ options:
   --compute-platform {cu102,cu111,cu113,cu116,cu117,cu118,rocm4.0.1,rocm4.1,rocm4.2,rocm4.5.2,rocm5.1.1,rocm5.2,rocm5.4.2}, -c {cu102,cu111,cu113,cu116,cu117,cu118,rocm4.0.1,rocm4.1,rocm4.2,rocm4.5.2,rocm5.1.1,rocm5.2,rocm5.4.2}
                         Manually specify platform version (cuda or rocm) instead ofauto-detect
                         (useful for cluster installations).
-  --lightning, -l       Flag to install pytorch-lightning
+  --lightning, -l       Flag to install lightning
   --use {pip,conda,mamba,poetry}, -u {pip,conda,mamba,poetry}
                         set command to install with.
   -install, -i          Run installation (default is to dry run commands)

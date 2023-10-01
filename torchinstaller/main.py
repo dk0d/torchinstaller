@@ -67,7 +67,7 @@ def main():
         "--lightning",
         "-l",
         action="store_true",
-        help="Flag to install pytorch-lightning",
+        help="Flag to install lightning (lightning.ai)",
         default=False,
     )
     parser.add_argument(
