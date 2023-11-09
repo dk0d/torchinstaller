@@ -9,11 +9,14 @@ version = "latest"
 
 [[cpu.conda]]
 installer = "conda"
-flags = ["pytorch", "torchvision", "torchaudio", "cpuonly", "-c", "pytorch"]
+flags = ["cpuonly", "-c", "pytorch"]
+version = "2.0.1"
 platform = "cpu"
-version = "latest"
 
 [cpu.conda.packages]
+pytorch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [[cpu.conda]]
 installer = "conda"
@@ -91,11 +94,14 @@ version = "latest"
 
 [[cpu.pip]]
 installer = "pip"
-flags = ["torch", "torchvision", "torchaudio", "--index-url", "https://download.pytorch.org/whl/cpu"]
+flags = ["--index-url", "https://download.pytorch.org/whl/cpu"]
+version = "2.0.1"
 platform = "cpu"
-version = "latest"
 
 [cpu.pip.packages]
+torch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [[cpu.pip]]
 installer = "pip"
@@ -399,11 +405,14 @@ torchaudio = "0.12.0"
 [cu117]
 [[cu117.conda]]
 installer = "conda"
-flags = ["pytorch", "torchvision", "torchaudio", "-c", "pytorch", "-c", "nvidia"]
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "2.0.1"
 platform = "cu117"
-version = "latest"
 
 [cu117.conda.packages]
+pytorch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 pytorch-cuda = "11.7"
 
 [[cu117.conda]]
@@ -444,11 +453,14 @@ pytorch-cuda = "11.7"
 
 [[cu117.pip]]
 installer = "pip"
-flags = ["torch", "torchvision", "torchaudio", "--index-url", "https://download.pytorch.org/whl/cu117"]
+flags = ["--index-url", "https://download.pytorch.org/whl/cu117"]
+version = "2.0.1"
 platform = "cu117"
-version = "latest"
 
 [cu117.pip.packages]
+torch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [[cu117.pip]]
 installer = "pip"
@@ -495,11 +507,14 @@ pytorch-cuda = "11.8"
 
 [[cu118.conda]]
 installer = "conda"
-flags = ["pytorch", "torchvision", "torchaudio", "-c", "pytorch", "-c", "nvidia"]
+flags = ["-c", "pytorch", "-c", "nvidia"]
+version = "2.0.1"
 platform = "cu118"
-version = "latest"
 
 [cu118.conda.packages]
+pytorch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 pytorch-cuda = "11.8"
 
 [[cu118.conda]]
@@ -524,11 +539,14 @@ version = "latest"
 
 [[cu118.pip]]
 installer = "pip"
-flags = ["torch", "torchvision", "torchaudio", "--index-url", "https://download.pytorch.org/whl/cu118"]
+flags = ["--index-url", "https://download.pytorch.org/whl/cu118"]
+version = "2.0.1"
 platform = "cu118"
-version = "latest"
 
 [cu118.pip.packages]
+torch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [[cu118.pip]]
 installer = "pip"
@@ -570,11 +588,14 @@ version = "latest"
 
 [[macOS.conda]]
 installer = "conda"
-flags = ["pytorch", "torchvision", "torchaudio", "-c", "pytorch"]
+flags = ["-c", "pytorch"]
+version = "2.0.1"
 platform = "macOS"
-version = "latest"
 
 [macOS.conda.packages]
+pytorch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [[macOS.conda]]
 installer = "conda"
@@ -652,11 +673,13 @@ version = "latest"
 
 [[macOS.pip]]
 installer = "pip"
-flags = ["torch", "torchvision", "torchaudio"]
+flags = ["torchaudio"]
+version = "2.0.1"
 platform = "macOS"
-version = "latest"
 
 [macOS.pip.packages]
+torch = "2.0.1"
+torchvision = "0.15.2"
 
 [[macOS.pip]]
 installer = "pip"
@@ -781,11 +804,14 @@ torchaudio = "0.13.0"
 
 [["rocm5.4.2".pip]]
 installer = "pip"
-flags = ["torch", "torchvision", "torchaudio", "--index-url", "https://download.pytorch.org/whl/rocm5.4.2"]
+flags = ["--index-url", "https://download.pytorch.org/whl/rocm5.4.2"]
+version = "2.0.1"
 platform = "rocm5.4.2"
-version = "latest"
 
 ["rocm5.4.2".pip.packages]
+torch = "2.0.1"
+torchvision = "0.15.2"
+torchaudio = "2.0.2"
 
 [["rocm5.4.2".pip]]
 installer = "pip"
