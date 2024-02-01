@@ -36,7 +36,7 @@ def parse_commands(name="commands.md"):
     platforms.add("macos")
     platforms = [p for p in platforms if ".html" not in p]
     platforms.sort()
-    print(platforms)
+    # print(platforms)
     #
     currentPlatform = ""
     output = {p: {} for p in platforms}
@@ -101,9 +101,6 @@ def parse_commands(name="commands.md"):
                 print(f"Error parsing line ({i}) {line} - {e}")
                 print(e)
                 print(f'{"-"*80}\n{entry}\n{"-"*80}')
-                print("platform", currentPlatform)
-
-                print(command)
                 raise e
         else:
             if "macos" in line.lower():

@@ -8,6 +8,17 @@ import unmarkd
 from rich import print
 
 
+def get_latest_version(
+    url="https://pytorch.org/get-started/locally",
+):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    md = unmarkd.unmark(soup.find(id='stable').get_text())
+    print(md)
+    # version = re.search(r"Stable\s(v\d\.\d\.\d)", md, re.MULTILINE).group(1)
+    # return version
+
+
 def get_markdown(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -22,9 +33,10 @@ def get_commands(
     md = get_markdown(url)
     md = "\n".join([line.strip() for line in md.split("\n") if len(line.strip()) > 0])
     spans = [(versions.group(1), versions.span()) for versions in re.finditer(r"^(v\d\.\d\.\d)", md, re.MULTILINE)]
-
-    latest = """
-# 2.2.0
+    get_latest_version()
+    latest_version = "v2.2.0"
+    latest = f"""
+# {latest_version}
 # macOS
 conda install pytorch::pytorch torchvision torchaudio -c pytorch
 # Linux
@@ -41,6 +53,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
     out = latest + "\n"
 
+    print(latest_version)
     for i in range(len(spans)):
         version, span = spans[i]
         if version < "v1.8.2":

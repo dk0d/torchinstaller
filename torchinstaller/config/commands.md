@@ -1,5 +1,5 @@
 
-# 2.2.0
+# v2.2.0
 # macOS
 conda install pytorch::pytorch torchvision torchaudio -c pytorch
 # Linux

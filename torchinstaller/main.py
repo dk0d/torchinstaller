@@ -55,7 +55,7 @@ def main():
         "-c",
         type=str,
         default=None,
-        dest="cuda",
+        dest="compute_platform",
         choices=availableCudaVersions(config),
         help=(
             "Manually specify platform version (cuda or rocm) instead of"
@@ -111,8 +111,6 @@ def main():
         parse_commands()
         print("[bold green]Sync complete")
         config = loadConfig(configPath)
-        
-        print(config)
         exit(0)
 
     if installer in ["conda", "mamba"]:
@@ -129,20 +127,20 @@ def main():
 
     print("-" * 100)
     if system_platform == "darwin":
-        platform = "macos"
-        print(f"[blue bold]Detected: {system_platform}\nUsing platform: {platform}")
+        detected = "macos"
+        
+    if args.compute_platform is None:
+        print(f"System platform: [blue bold]{detected}[/blue bold]\nUsing platform: [red bold]{platform}")
+        platform = detected
     else:
-        if args.cuda is None:
-            print(f"[blue bold]System platform: {detected}\nUsing platform: {platform}")
-        else:
-            platform = args.cuda
-            print(f"User specified platform: [yellow bold]{platform}")
-            print(f"System platform: [blue bold]{detected}[/blue bold]\nUsing platform: [blue bold]{platform}")
+        platform = args.compute_platform
+        print(f"User specified platform: [yellow bold]{platform}")
+        print(f"System platform: [blue bold]{detected}[/blue bold]\nUsing platform: [blue bold]{platform}")
 
     if platform in ["cpu"]:
-        print("[orange bold]CPU ONLY")
+        print("[yellow bold]CPU ONLY")
     elif platform in ["macos"]:
-        print("[yellow bold]macOS (pytorch 2.0 supports apple silicon)")
+        print("\n[yellow bold]macOS (pytorch 2.0 supports apple silicon)\n")
 
     print("-" * 100)
 
