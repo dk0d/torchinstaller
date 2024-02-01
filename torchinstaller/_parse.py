@@ -2,12 +2,15 @@
 import re
 from pathlib import Path
 import tomlkit
+from torchinstaller._soup import get_commands
 
 
 def parse_commands(name="commands.md"):
     src_dir = Path("./torchinstaller/config").resolve()
     if not src_dir.exists():
         src_dir = Path("./config").resolve()
+
+    get_commands(src_dir, name=name)
 
     src_path = src_dir / name
 
