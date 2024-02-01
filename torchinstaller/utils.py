@@ -79,6 +79,9 @@ VALID_PYG_BUILDS = [
     "torch-2.0.0+cpu",
     "torch-2.0.0+cu117",
     "torch-2.0.0+cu118",
+    "torch-2.1.0+cpu",
+    "torch-2.1.0+cu118",
+    "torch-2.1.0+cu121",
 ]
 
 
@@ -163,9 +166,6 @@ def handlePoetryCommand(command, run_install):
         commandArgs.extend(["--source", "torch"])
 
     run(commandArgs, run_install)
-
-
-# Related to commands.bak.toml and pyg-commands.toml
 
 
 def getCommandForPlatform(config, command_key, version, platform):
@@ -296,6 +296,6 @@ def getPlatforms(config):
 
 
 def availableCudaVersions(config):
-    versions = [p for p in getPlatforms(config) if p not in ["cpu", "macOS"]]
+    versions = [p for p in getPlatforms(config) if p not in ["cpu", "macos"]]
     versions.sort()
     return versions

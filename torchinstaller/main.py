@@ -16,10 +16,9 @@ from .utils import (
 
 
 def main():
-    LATEST_VERSION = "2.0.1"
-
     configPath = Path(__file__).parent / "config" / "commands.toml"
     config = loadConfig(configPath)
+
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -85,6 +84,14 @@ def main():
         help="Run installation (default is to dry run commands)",
     )
 
+    parser.add_argument(
+        "--sync",
+        "-s",
+        help="update installation commands by parsing the pytorch website",
+        default=False,
+        action="store_true",
+    )
+
     try:
         args, unk = parser.parse_known_args()
     except Exception as e:
@@ -95,6 +102,18 @@ def main():
         exit(0)
 
     installer = args.use
+
+    # LATEST_VERSION = "2.2.0"
+
+    if args.sync:
+        print("[bold red]Syncing commands")
+        from ._parse import parse_commands
+        parse_commands()
+        print("[bold green]Sync complete")
+        config = loadConfig(configPath)
+        
+        print(config)
+        exit(0)
 
     if installer in ["conda", "mamba"]:
         command_key = "conda"
@@ -110,7 +129,8 @@ def main():
 
     print("-" * 100)
     if system_platform == "darwin":
-        platform = "macOS"
+        platform = "macos"
+        print(f"[blue bold]Detected: {system_platform}\nUsing platform: {platform}")
     else:
         if args.cuda is None:
             print(f"[blue bold]System platform: {detected}\nUsing platform: {platform}")
@@ -121,7 +141,7 @@ def main():
 
     if platform in ["cpu"]:
         print("[orange bold]CPU ONLY")
-    elif platform in ["macOS"]:
+    elif platform in ["macos"]:
         print("[yellow bold]macOS (pytorch 2.0 supports apple silicon)")
 
     print("-" * 100)

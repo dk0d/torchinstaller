@@ -17,40 +17,27 @@ def get_markdown(url):
 def get_commands(
     out_dir: Path,
     name="commands.md",
-    url = "https://pytorch.org/get-started/previous-versions",
+    url="https://pytorch.org/get-started/previous-versions",
 ):
     md = get_markdown(url)
     md = "\n".join([line.strip() for line in md.split("\n") if len(line.strip()) > 0])
     spans = [(versions.group(1), versions.span()) for versions in re.finditer(r"^(v\d\.\d\.\d)", md, re.MULTILINE)]
 
-    latest = """# 2.2.0
-
-    # macOS
-
-    conda install pytorch::pytorch torchvision torchaudio -c pytorch
-
-    # Linux
-
-    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-
-    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-
-    conda install pytorch torchvision torchaudio cpuonly -c pytorch
-
-    # macOS
-
-    pip install torch torchvision torchaudio
-
-    # Linux
-
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7
-
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-    """
+    latest = """
+# 2.2.0
+# macOS
+conda install pytorch::pytorch torchvision torchaudio -c pytorch
+# Linux
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+# macOS
+pip install torch torchvision torchaudio
+# Linux
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu"""
 
     out = latest + "\n"
 
@@ -85,8 +72,7 @@ def get_commands(
                 cleaned[i] = f"## {cleaned[i]}"
 
         cleaned[0] = f"# {cleaned[0]}"
-        spec = "\n\n".join(cleaned)
-        out += spec + "\n\n"
+        spec = "\n".join(cleaned)
+        out += spec + "\n"
 
     (out_dir / name).write_text(re.sub(r"\\", "", out))
-
