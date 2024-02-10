@@ -6,7 +6,7 @@
   
 # `torchinstaller`
 
-<h3 align="center">Installing PyTorch has never been this easy!</h3>
+<h3 align="center">Installing PyTorch has never been easier</h3>
 
 </div></p>
 
