@@ -1,7 +1,7 @@
 <p align="center"><div align="center" style="display": none;>
   
 <p align="center">
-<img alt='icon' width="150" = src="https://github.com/dk0d/torchinstaller/raw/main/assets/torchinstaller-icon.png"/>
+<img alt='icon' width="150" = src="https://github.com/dk0d/torchinstaller/raw/main/assets/torchinstaller_icon.png"/>
 </p>
   
 # `torchinstaller`
