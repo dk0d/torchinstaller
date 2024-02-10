@@ -1,5 +1,9 @@
 <p align="center"><div align="center" style="display": none;>
   
+<p align="center">
+<img alt='icon' width="150" = src="https://github.com/dk0d/torchinstaller/raw/main/assets/torchinstaller-icon.png"/>
+</p>
+  
 # `torchinstaller`
 
 <h3 align="center">Installing PyTorch has never been this easy!</h3>
@@ -59,4 +63,3 @@ options:
 ```
 
 > Note: `pytorch-geometric` can be problematic to install. Installing from source has been added to facilitate installation, but referring to their documentation may be necessary to address errors if they occur.
-
