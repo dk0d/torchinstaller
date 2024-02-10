@@ -1,11 +1,29 @@
-# PyTorch Install Helper
+<p align="center"><div align="center" style="display": none;>
+  
+# `torchinstaller`
 
-Super simple helper to install pytorch stuff without having to check cuda versions and go to websites for the installer URLs.
-Installs based on requested or detected CUDA version, doesn't check python versions.
+<h3 align="center">Installing PyTorch has never been this easy!</h3>
 
-> _Only Linux and macOS Supported_
+</div></p>
 
-Detects what cuda version is available and runs the pip command to install latest pytorch and compatible cuda version
+<p align="center">
+
+<a href="https://pypi.org/project/torchinstaller/">
+  <img alt="PYPI Version" src="https://img.shields.io/pypi/v/torchinstaller?color=blue">
+</a>
+
+<a href="https://github.com/dk0d/torchinstaller/blob/main/LICENSE">
+  <img alt="Licence" src="https://img.shields.io/pypi/l/torchinstaller">
+</a>
+
+</p>
+
+`torchinstaller` is a super simple helper to install PyTorch stuff without having to check cuda versions and go to websites for the installer URLs.
+It installs PyTorch components based on requested or detected CUDA version, and doesn't check python versions.
+
+> **_Only Linux and macOS supported_**
+
+It detects what cuda version is available and runs the pip command to install latest PyTorch and compatible cuda version
 
 ## Installation
 
@@ -40,5 +58,5 @@ options:
   --sync, -s            update installation commands by parsing the pytorch website
 ```
 
-> Note: pytorch-geometric can be problematic to install. Installing from source has been added to facilitate installation, but referring to their documentation may be necessary to address errors if they occur.
+> Note: `pytorch-geometric` can be problematic to install. Installing from source has been added to facilitate installation, but referring to their documentation may be necessary to address errors if they occur.
 
