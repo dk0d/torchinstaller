@@ -82,6 +82,9 @@ VALID_PYG_BUILDS = [
     "torch-2.1.0+cpu",
     "torch-2.1.0+cu118",
     "torch-2.1.0+cu121",
+    "torch-2.2.0+cpu",
+    "torch-2.2.0+cu118",
+    "torch-2.2.0+cu121",
 ]
 
 
