@@ -5,21 +5,21 @@ import tomlkit
 from torchinstaller._soup import get_commands
 
 
-def parse_commands(name="commands.md"):
+def sync_commands(name="commands.md"):
     src_dir = Path("./torchinstaller/config").resolve()
     if not src_dir.exists():
         src_dir = Path("./config").resolve()
 
-    get_commands(src_dir, name=name)
-
+    # get_commands(src_dir, name=name)
     src_path = src_dir / name
+    text = src_path.read_text()
 
     platforms = set(
         [
             p.group(0).split("/")[-1]
             for p in re.finditer(
-                r"(?:\+|whl/.*)",
-                src_path.read_text(),
+                r"(?:whl/.*)",
+                text,
             )
         ]
     )
@@ -27,8 +27,8 @@ def parse_commands(name="commands.md"):
         [
             p.group(1)
             for p in re.finditer(
-                r"torch==[\d\.]+(?:\+)([\w\d\.]+)",
-                src_path.read_text(),
+                r"torch==[\d\.]+\+([\w\d\.]+)",
+                text,
             )
         ]
     )
