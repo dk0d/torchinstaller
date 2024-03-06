@@ -10,7 +10,7 @@ def sync_commands(name="commands.md"):
     if not src_dir.exists():
         src_dir = Path("./config").resolve()
 
-    # get_commands(src_dir, name=name)
+    get_commands(src_dir, name=name)
     src_path = src_dir / name
     text = src_path.read_text()
 
