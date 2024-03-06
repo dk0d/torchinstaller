@@ -1,5 +1,5 @@
 
-# v2.2.0
+# latest (v2.2.1)
 # macOS
 conda install pytorch::pytorch torchvision torchaudio -c pytorch
 # Linux
@@ -13,6 +13,20 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.7
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# v2.2.0
+## macOS
+conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 -c pytorch
+## Linux
+conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 cpuonly -c pytorch
+## macOS
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0
+## Linux
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/rocm5.6
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu121
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cpu
 # v2.1.2
 ## macOS
 conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 -c pytorch
