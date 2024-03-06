@@ -3,6 +3,7 @@ from rich import print
 import argparse
 
 from .utils import (
+    GetCommandError,
     loadConfig,
     availableCudaVersions,
     getPythonVersion,
@@ -95,10 +96,10 @@ def main():
     try:
         args, unk = parser.parse_known_args()
     except Exception as e:
-        print("-" * 80)
+        print("-" * 20)
         print("[red bold]Argument Error")
         print(e)
-        print("-" * 80)
+        print("-" * 20)
         exit(0)
 
     installer = args.use
@@ -107,8 +108,9 @@ def main():
 
     if args.sync:
         print("[bold red]Syncing commands")
-        from ._parse import parse_commands
-        parse_commands()
+        from ._parse import sync_commands
+
+        sync_commands()
         print("[bold green]Sync complete")
         config = loadConfig(configPath)
         exit(0)
@@ -125,10 +127,10 @@ def main():
 
     platform, detected = getCudaVersion(availableCudaVersions(config))
 
-    print("-" * 100)
+    print("-" * 20)
     if system_platform == "darwin":
         detected = "macos"
-        
+
     if args.compute_platform is None:
         print(f"System platform: [blue bold]{detected}[/blue bold]\nUsing platform: [red bold]{platform}")
         platform = detected
@@ -142,7 +144,7 @@ def main():
     elif platform in ["macos"]:
         print("\n[yellow bold]macOS (pytorch 2.0 supports apple silicon)\n")
 
-    print("-" * 100)
+    print("-" * 20)
 
     try:
         if args.pytorch is not None:
@@ -159,11 +161,12 @@ def main():
             print("[red bold]NO COMMANDS Selected")
             print("[green bold]Run torchinstall -h to see flags for installing")
 
+    except GetCommandError as err:
+        print("Unable to derive command\n")
+        print(f"{err}")
     except Exception as err:
         print("Install failed")
         print(f"{err}")
-        raise err
-    print("-" * 100)
 
 
 if __name__ == "__main__":

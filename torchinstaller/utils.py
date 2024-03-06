@@ -168,18 +168,22 @@ def handlePoetryCommand(command, run_install):
     run(commandArgs, run_install)
 
 
+class GetCommandError(Exception):
+    pass
+
+
 def getCommandForPlatform(config, command_key, version, platform):
     commands = config[platform][command_key]
     try:
         command = list(filter(lambda v: v["version"] == version, commands))[0]
         return command
     except Exception:
-        print(f"[red bold]Could not find version {version} for requested platform")
-        print(f"\nAvailable pytorch versions on {platform}\n" + "-" * 80)
+        msg = f"[red bold]Could not find requested version, platform [/red bold]: ({version}, {platform})\n\n"
+        msg += f"Available pytorch versions on [blue]{platform}[/blue]\n" + "-" * 20 + "\n"
         for c in commands:
-            print(f"- {c['version']}")
-        print("-" * 80)
-        exit(0)
+            msg += f"- {c['version']}\n"
+        msg += "-" * 20
+        raise GetCommandError(msg)
 
 
 def remove_none(d):

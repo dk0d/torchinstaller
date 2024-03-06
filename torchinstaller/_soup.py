@@ -1,6 +1,5 @@
 # %%
 from pathlib import Path
-from typing import Literal
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -9,12 +8,22 @@ from rich import print
 
 
 def get_latest_version(
-    url="https://pytorch.org/get-started/locally",
+    url="https://pypi.org/project/torch/",
 ):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
-    md = unmarkd.unmark(soup.find(id='stable').get_text())
-    print(md)
+    version = "v2"
+    try:
+        name = soup.find(class_="package-header__name")
+        vers = name.get_text() if name is not None else ""
+        vers = re.search(r"torch\s+(\d+\.\d+\.\d+)", vers).group(1)
+        vers = f"v{vers}"
+        version = vers
+    except Exception as e:
+        pass
+    return version
+    # md = unmarkd.unmark(soup.find(id="stable").get_text())
+    # print(md)
     # version = re.search(r"Stable\s(v\d\.\d\.\d)", md, re.MULTILINE).group(1)
     # return version
 
@@ -33,10 +42,9 @@ def get_commands(
     md = get_markdown(url)
     md = "\n".join([line.strip() for line in md.split("\n") if len(line.strip()) > 0])
     spans = [(versions.group(1), versions.span()) for versions in re.finditer(r"^(v\d\.\d\.\d)", md, re.MULTILINE)]
-    get_latest_version()
-    latest_version = "v2.2.0"
+    latest_version = get_latest_version()
     latest = f"""
-# {latest_version}
+# latest ({latest_version})
 # macOS
 conda install pytorch::pytorch torchvision torchaudio -c pytorch
 # Linux
