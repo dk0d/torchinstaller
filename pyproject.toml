@@ -17,7 +17,7 @@ github = "https://github.com/dk0d/torchinstaller.git"
 torchinstall = "torchinstaller.main:main"
 
 [project.optional-dependencies]
-soup = ["beautifulsoup4", 'unmarkd', 'requests']
+sync = ["beautifulsoup4", 'unmarkd', 'requests']
 
 [tool.black]
 line-length = 120
