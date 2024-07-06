@@ -118,5 +118,5 @@ try:
 
 
 except ImportError:
-    print("Run pip install \"torchinstaller['sync']\"")
+    print("Run pip install 'torchinstaller[sync]' for sync feature")
     pass
