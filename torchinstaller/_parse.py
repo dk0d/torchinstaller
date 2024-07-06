@@ -6,10 +6,7 @@ from torchinstaller._soup import get_commands
 
 
 def sync_commands(name="commands.md"):
-    src_dir = Path("./torchinstaller/config").resolve()
-    if not src_dir.exists():
-        src_dir = Path("./config").resolve()
-
+    src_dir = (Path(__file__) / "config").resolve()
     get_commands(src_dir, name=name)
     src_path = src_dir / name
     text = src_path.read_text()
