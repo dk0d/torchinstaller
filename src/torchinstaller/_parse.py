@@ -7,7 +7,7 @@ from rich import print
 try:
     from torchinstaller._soup import get_commands
 
-    def sync_commands(name="commands.md"):
+    def sync_commands(name="commands.md", out_suffix=".yaml"):
         src_dir = (Path(__file__).parent / "config").resolve()
         get_commands(src_dir, name=name)
         src_path = src_dir / name
@@ -99,7 +99,7 @@ try:
                 except Exception as e:
                     print(f"[bold red]Error parsing line ({i}) {line} - {e}")
                     print(e)
-                    print(f'{"-"*80}\n{entry}\n{"-"*80}')
+                    print(f"{'-' * 80}\n{entry}\n{'-' * 80}")
                     raise e
             else:
                 if "macos" in line.lower():
@@ -107,10 +107,16 @@ try:
                 elif "#" not in line:
                     currentPlatform = None
 
-        outDir = src_path.parent / "commands.toml"
+        outPath = (src_path.parent / "commands").with_suffix(out_suffix)
 
-        with outDir.open("w") as fp:
-            tomlkit.dump(output, fp)
+        if outPath.suffix in [".toml"]:
+            with outPath.open("w") as fp:
+                tomlkit.dump(output, fp)
+        else:
+            import yaml
+
+            with outPath.open("w") as fp:
+                yaml.dump(output, fp, sort_keys=False)
 
         return output
 

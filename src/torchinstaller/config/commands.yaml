@@ -1,0 +1,2769 @@
+cpu:
+  conda:
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - cpuonly
+    - -c
+    - pytorch
+    packages: {}
+    platform: cpu
+    version: latest
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.0.0
+      torchvision: 0.15.0
+      torchaudio: 2.0.0
+    version: 2.0.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.13.1
+      torchvision: 0.14.1
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.13.0
+      torchvision: 0.14.0
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.11.0
+      torchvision: 0.12.0
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.1
+      torchvision: 0.11.2
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.0
+      torchvision: 0.11.0
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.1
+      torchvision: 0.10.1
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: cpu
+  - installer: conda
+    flags:
+    - cpuonly
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.0
+      torchvision: 0.10.0
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: cpu
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - cpuonly
+    - -c
+    - pytorch-lts
+    packages: {}
+    platform: cpu
+    version: latest
+  pip:
+  - installer: pip
+    flags:
+    - torch
+    - torchvision
+    - torchaudio
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages: {}
+    platform: cpu
+    version: latest
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: cpu
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: cpu
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.0.0
+      torchvision: 0.15.1
+      torchaudio: 2.0.1
+    version: 2.0.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 2.0.0
+      torchvision: 0.15.1
+      torchaudio: 2.0.1
+    version: 2.0.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 1.13.1+cpu
+      torchvision: 0.14.1+cpu
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 1.13.0+cpu
+      torchvision: 0.14.0+cpu
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 1.12.1+cpu
+      torchvision: 0.13.1+cpu
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 1.12.0+cpu
+      torchvision: 0.13.0+cpu
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cpu
+    packages:
+      torch: 1.11.0+cpu
+      torchvision: 0.12.0+cpu
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/cpu/torch_stable.html
+    packages:
+      torch: 1.10.1+cpu
+      torchvision: 0.11.2+cpu
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+cpu
+      torchvision: 0.11.0+cpu
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: cpu
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+cpu
+      torchvision: 0.10.1+cpu
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: cpu
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+cpu
+      torchvision: 0.10.0+cpu
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: cpu
+  pip3:
+  - installer: pip3
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/lts/1.8/cpu
+    packages:
+      torch: 1.8.2
+      torchvision: 0.9.2
+      torchaudio: 0.8.2
+    version: 1.8.2
+    platform: cpu
+cu102:
+  conda:
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+      cudatoolkit: '10.2'
+    version: 1.12.1
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+      cudatoolkit: '10.2'
+    version: 1.12.0
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.11.0
+      torchvision: 0.12.0
+      torchaudio: 0.11.0
+      cudatoolkit: '10.2'
+    version: 1.11.0
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.1
+      torchvision: 0.11.2
+      torchaudio: 0.10.1
+      cudatoolkit: '10.2'
+    version: 1.10.1
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.0
+      torchvision: 0.11.0
+      torchaudio: 0.10.0
+      cudatoolkit: '10.2'
+    version: 1.10.0
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.1
+      torchvision: 0.10.1
+      torchaudio: 0.9.1
+      cudatoolkit: '10.2'
+    version: 1.9.1
+    platform: cu102
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.0
+      torchvision: 0.10.0
+      torchaudio: 0.9.0
+      cudatoolkit: '10.2'
+    version: 1.9.0
+    platform: cu102
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch-lts
+    packages:
+      cudatoolkit: '10.2'
+    platform: cu102
+    version: latest
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu102
+    packages:
+      torch: 1.12.1+cu102
+      torchvision: 0.13.1+cu102
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: cu102
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu102
+    packages:
+      torch: 1.12.0+cu102
+      torchvision: 0.13.0+cu102
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: cu102
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu102
+    packages:
+      torch: 1.11.0+cu102
+      torchvision: 0.12.0+cu102
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: cu102
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/cu102/torch_stable.html
+    packages:
+      torch: 1.10.1+cu102
+      torchvision: 0.11.2+cu102
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: cu102
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+cu102
+      torchvision: 0.11.0+cu102
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: cu102
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+cu102
+      torchvision: 0.10.1+cu102
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: cu102
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+cu102
+      torchvision: 0.10.0+cu102
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: cu102
+  pip3:
+  - installer: pip3
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/lts/1.8/cu102
+    packages:
+      torch: 1.8.2
+      torchvision: 0.9.2
+      torchaudio: 0.8.2
+    version: 1.8.2
+    platform: cu102
+cu111:
+  pip:
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/cu111/torch_stable.html
+    packages:
+      torch: 1.10.1+cu111
+      torchvision: 0.11.2+cu111
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: cu111
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+cu111
+      torchvision: 0.11.0+cu111
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: cu111
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+cu111
+      torchvision: 0.10.1+cu111
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: cu111
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+cu111
+      torchvision: 0.10.0+cu111
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: cu111
+  conda:
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch-lts
+    - -c
+    - nvidia
+    packages:
+      cudatoolkit: '11.1'
+    platform: cu111
+    version: latest
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch-lts
+    - -c
+    - conda-forge
+    packages:
+      cudatoolkit: '11.1'
+    platform: cu111
+    version: latest
+  pip3:
+  - installer: pip3
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/lts/1.8/cu111
+    packages:
+      torch: 1.8.2
+      torchvision: 0.9.2
+      torchaudio: 0.8.2
+    version: 1.8.2
+    platform: cu111
+cu113:
+  conda:
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+      cudatoolkit: '11.3'
+    version: 1.12.1
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+      cudatoolkit: '11.3'
+    version: 1.12.0
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.11.0
+      torchvision: 0.12.0
+      torchaudio: 0.11.0
+      cudatoolkit: '11.3'
+    version: 1.11.0
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.10.1
+      torchvision: 0.11.2
+      torchaudio: 0.10.1
+      cudatoolkit: '11.3'
+    version: 1.10.1
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.10.0
+      torchvision: 0.11.0
+      torchaudio: 0.10.0
+      cudatoolkit: '11.3'
+    version: 1.10.0
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.9.1
+      torchvision: 0.10.1
+      torchaudio: 0.9.1
+      cudatoolkit: '11.3'
+    version: 1.9.1
+    platform: cu113
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.9.0
+      torchvision: 0.10.0
+      torchaudio: 0.9.0
+      cudatoolkit: '11.3'
+    version: 1.9.0
+    platform: cu113
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu113
+    packages:
+      torch: 1.12.1+cu113
+      torchvision: 0.13.1+cu113
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: cu113
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu113
+    packages:
+      torch: 1.12.0+cu113
+      torchvision: 0.13.0+cu113
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: cu113
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu113
+    packages:
+      torch: 1.11.0+cu113
+      torchvision: 0.12.0+cu113
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: cu113
+cu116:
+  conda:
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 1.13.1
+      torchvision: 0.14.1
+      torchaudio: 0.13.1
+      pytorch-cuda: '11.6'
+    version: 1.13.1
+    platform: cu116
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 1.13.0
+      torchvision: 0.14.0
+      torchaudio: 0.13.0
+      pytorch-cuda: '11.6'
+    version: 1.13.0
+    platform: cu116
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+      cudatoolkit: '11.6'
+    version: 1.12.1
+    platform: cu116
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - conda-forge
+    packages:
+      pytorch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+      cudatoolkit: '11.6'
+    version: 1.12.0
+    platform: cu116
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu116
+    packages:
+      torch: 1.13.1+cu116
+      torchvision: 0.14.1+cu116
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: cu116
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu116
+    packages:
+      torch: 1.13.0+cu116
+      torchvision: 0.14.0+cu116
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: cu116
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu116
+    packages:
+      torch: 1.12.1+cu116
+      torchvision: 0.13.1+cu116
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: cu116
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu116
+    packages:
+      torch: 1.12.0+cu116
+      torchvision: 0.13.0+cu116
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: cu116
+cu117:
+  conda:
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+      pytorch-cuda: '11.7'
+    version: 2.0.1
+    platform: cu117
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.0.0
+      torchvision: 0.15.0
+      torchaudio: 2.0.0
+      pytorch-cuda: '11.7'
+    version: 2.0.0
+    platform: cu117
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 1.13.1
+      torchvision: 0.14.1
+      torchaudio: 0.13.1
+      pytorch-cuda: '11.7'
+    version: 1.13.1
+    platform: cu117
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 1.13.0
+      torchvision: 0.14.0
+      torchaudio: 0.13.0
+      pytorch-cuda: '11.7'
+    version: 1.13.0
+    platform: cu117
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu117
+    packages:
+      torch: 1.13.1+cu117
+      torchvision: 0.14.1+cu117
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: cu117
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/cu117
+    packages:
+      torch: 1.13.0+cu117
+      torchvision: 0.14.0+cu117
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: cu117
+cu118:
+  conda:
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch-cuda: '11.8'
+    platform: cu118
+    version: latest
+  - installer: conda
+    flags:
+    - ''
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+      pytorch-cuda: '11.8'
+    version: 2.5.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - ''
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+      pytorch-cuda: '11.8'
+    version: 2.5.0
+    platform: cu118
+  - installer: conda
+    flags:
+    - ''
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+      pytorch-cuda: '11.8'
+    version: 2.4.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - ''
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+      pytorch-cuda: '11.8'
+    version: 2.4.0
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+      pytorch-cuda: '11.8'
+    version: 2.3.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+      pytorch-cuda: '11.8'
+    version: 2.3.0
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+      pytorch-cuda: '11.8'
+    version: 2.2.2
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+      pytorch-cuda: '11.8'
+    version: 2.2.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+      pytorch-cuda: '11.8'
+    version: 2.2.0
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+      pytorch-cuda: '11.8'
+    version: 2.1.2
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+      pytorch-cuda: '11.8'
+    version: 2.1.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+      pytorch-cuda: '11.8'
+    version: 2.1.0
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+      pytorch-cuda: '11.8'
+    version: 2.0.1
+    platform: cu118
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.0.0
+      torchvision: 0.15.0
+      torchaudio: 2.0.0
+      pytorch-cuda: '11.8'
+    version: 2.0.0
+    platform: cu118
+  pip:
+  - installer: pip
+    flags:
+    - torch
+    - torchvision
+    - torchaudio
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages: {}
+    platform: cu118
+    version: latest
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: cu118
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu118
+    packages:
+      torch: 2.0.0
+      torchvision: 0.15.1
+      torchaudio: 2.0.1
+    version: 2.0.0
+    platform: cu118
+cu121:
+  conda:
+  - installer: conda
+    flags:
+    - pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch-cuda: '12.1'
+    platform: cu121
+    version: latest
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+      pytorch-cuda: '12.1'
+    version: 2.5.1
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+      pytorch-cuda: '12.1'
+    version: 2.5.0
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+      pytorch-cuda: '12.1'
+    version: 2.4.1
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+      pytorch-cuda: '12.1'
+    version: 2.4.0
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+      pytorch-cuda: '12.1'
+    version: 2.3.1
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+      pytorch-cuda: '12.1'
+    version: 2.3.0
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+      pytorch-cuda: '12.1'
+    version: 2.2.2
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+      pytorch-cuda: '12.1'
+    version: 2.2.1
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+      pytorch-cuda: '12.1'
+    version: 2.2.0
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+      pytorch-cuda: '12.1'
+    version: 2.1.2
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+      pytorch-cuda: '12.1'
+    version: 2.1.1
+    platform: cu121
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+      pytorch-cuda: '12.1'
+    version: 2.1.0
+    platform: cu121
+  pip:
+  - installer: pip
+    flags:
+    - torch
+    - torchvision
+    - torchaudio
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages: {}
+    platform: cu121
+    version: latest
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: cu121
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu121
+    packages:
+      torch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: cu121
+cu124:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu124
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: cu124
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu124
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: cu124
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu124
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: cu124
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu124
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: cu124
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu124
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: cu124
+  conda:
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+      pytorch-cuda: '12.4'
+    version: 2.5.1
+    platform: cu124
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+      pytorch-cuda: '12.4'
+    version: 2.5.0
+    platform: cu124
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+      pytorch-cuda: '12.4'
+    version: 2.4.1
+    platform: cu124
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    - -c
+    - nvidia
+    packages:
+      pytorch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+      pytorch-cuda: '12.4'
+    version: 2.4.0
+    platform: cu124
+cu126:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu126
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: cu126
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu126
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: cu126
+cu128:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/cu128
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: cu128
+macos:
+  conda:
+  - installer: conda
+    flags:
+    - pytorch::pytorch
+    - torchvision
+    - torchaudio
+    - -c
+    - pytorch
+    packages: {}
+    platform: macos
+    version: latest
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 2.0.0
+      torchvision: 0.15.0
+      torchaudio: 2.0.0
+    version: 2.0.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.13.1
+      torchvision: 0.14.1
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.13.0
+      torchvision: 0.14.0
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.11.0
+      torchvision: 0.12.0
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.1
+      torchvision: 0.11.2
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.10.0
+      torchvision: 0.11.0
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.1
+      torchvision: 0.10.1
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: macos
+  - installer: conda
+    flags:
+    - -c
+    - pytorch
+    packages:
+      pytorch: 1.9.0
+      torchvision: 0.10.0
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: macos
+  pip:
+  - installer: pip
+    flags:
+    - torch
+    - torchvision
+    - torchaudio
+    packages: {}
+    platform: macos
+    version: latest
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 2.0.0
+      torchvision: 0.15.1
+      torchaudio: 2.0.1
+    version: 2.0.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.13.1
+      torchvision: 0.14.1
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.13.0
+      torchvision: 0.14.0
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.12.1
+      torchvision: 0.13.1
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.12.0
+      torchvision: 0.13.0
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.11.0
+      torchvision: 0.12.0
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.10.1
+      torchvision: 0.11.2
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.10.0
+      torchvision: 0.11.0
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.9.1
+      torchvision: 0.10.1
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: macos
+  - installer: pip
+    flags: []
+    packages:
+      torch: 1.9.0
+      torchvision: 0.10.0
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: macos
+rocm4.0.1:
+  pip:
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.1+rocm4.0.1
+      torchvision: 0.10.2+rocm4.0.1
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: rocm4.0.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+rocm4.0.1
+      torchvision: 0.10.1+rocm4.0.1
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: rocm4.0.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+rocm4.0.1
+      torchvision: 0.10.1+rocm4.0.1
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: rocm4.0.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+rocm4.0.1
+      torchvision: 0.10.0+rocm4.0.1
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: rocm4.0.1
+rocm4.1:
+  pip:
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.1+rocm4.1
+      torchvision: 0.11.2+rocm4.1
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: rocm4.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+rocm4.1
+      torchvision: 0.11.0+rocm4.1
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: rocm4.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+rocm4.1
+      torchvision: 0.10.1+rocm4.1
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: rocm4.1
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+rocm4.1
+      torchvision: 0.10.0+rocm4.1
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: rocm4.1
+rocm4.2:
+  pip:
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/rocm4.2/torch_stable.html
+    packages:
+      torch: 1.10.1+rocm4.2
+      torchvision: 0.11.2+rocm4.2
+      torchaudio: 0.10.1
+    version: 1.10.1
+    platform: rocm4.2
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.10.0+rocm4.2
+      torchvision: 0.11.0+rocm4.2
+      torchaudio: 0.10.0
+    version: 1.10.0
+    platform: rocm4.2
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.1+rocm4.2
+      torchvision: 0.10.1+rocm4.2
+      torchaudio: 0.9.1
+    version: 1.9.1
+    platform: rocm4.2
+  - installer: pip
+    flags:
+    - -f
+    - https://download.pytorch.org/whl/torch_stable.html
+    packages:
+      torch: 1.9.0+rocm4.2
+      torchvision: 0.10.0+rocm4.2
+      torchaudio: 0.9.0
+    version: 1.9.0
+    platform: rocm4.2
+rocm4.5.2:
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - ''
+    - https://download.pytorch.org/whl/rocm4.5.2
+    packages:
+      torch: 1.11.0+rocm4.5.2
+      torchvision: 0.12.0+rocm4.5.2
+      torchaudio: 0.11.0
+    version: 1.11.0
+    platform: rocm4.5.2
+rocm5.1.1:
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - ''
+    - https://download.pytorch.org/whl/rocm5.1.1
+    packages:
+      torch: 1.12.1+rocm5.1.1
+      torchvision: 0.13.1+rocm5.1.1
+      torchaudio: 0.12.1
+    version: 1.12.1
+    platform: rocm5.1.1
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - ''
+    - https://download.pytorch.org/whl/rocm5.1.1
+    packages:
+      torch: 1.12.0+rocm5.1.1
+      torchvision: 0.13.0+rocm5.1.1
+      torchaudio: 0.12.0
+    version: 1.12.0
+    platform: rocm5.1.1
+rocm5.2:
+  pip:
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/rocm5.2
+    packages:
+      torch: 1.13.1+rocm5.2
+      torchvision: 0.14.1+rocm5.2
+      torchaudio: 0.13.1
+    version: 1.13.1
+    platform: rocm5.2
+  - installer: pip
+    flags:
+    - --extra-index-url
+    - https://download.pytorch.org/whl/rocm5.2
+    packages:
+      torch: 1.13.0+rocm5.2
+      torchvision: 0.14.0+rocm5.2
+      torchaudio: 0.13.0
+    version: 1.13.0
+    platform: rocm5.2
+rocm5.4.2:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.4.2
+    packages:
+      torch: 2.0.1
+      torchvision: 0.15.2
+      torchaudio: 2.0.2
+    version: 2.0.1
+    platform: rocm5.4.2
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.4.2
+    packages:
+      torch: 2.0.0
+      torchvision: 0.15.1
+      torchaudio: 2.0.1
+    version: 2.0.0
+    platform: rocm5.4.2
+rocm5.6:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.6
+    packages:
+      torch: 2.2.0
+      torchvision: 0.17.0
+      torchaudio: 2.2.0
+    version: 2.2.0
+    platform: rocm5.6
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.6
+    packages:
+      torch: 2.1.2
+      torchvision: 0.16.2
+      torchaudio: 2.1.2
+    version: 2.1.2
+    platform: rocm5.6
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.6
+    packages:
+      torch: 2.1.1
+      torchvision: 0.16.1
+      torchaudio: 2.1.1
+    version: 2.1.1
+    platform: rocm5.6
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.6
+    packages:
+      torch: 2.1.0
+      torchvision: 0.16.0
+      torchaudio: 2.1.0
+    version: 2.1.0
+    platform: rocm5.6
+rocm5.7:
+  pip:
+  - installer: pip
+    flags:
+    - torch
+    - torchvision
+    - torchaudio
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.7
+    packages: {}
+    platform: rocm5.7
+    version: latest
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.7
+    packages:
+      torch: 2.2.2
+      torchvision: 0.17.2
+      torchaudio: 2.2.2
+    version: 2.2.2
+    platform: rocm5.7
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm5.7
+    packages:
+      torch: 2.2.1
+      torchvision: 0.17.1
+      torchaudio: 2.2.1
+    version: 2.2.1
+    platform: rocm5.7
+rocm6.0:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.0
+    packages:
+      torch: 2.3.1
+      torchvision: 0.18.1
+      torchaudio: 2.3.1
+    version: 2.3.1
+    platform: rocm6.0
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.0
+    packages:
+      torch: 2.3.0
+      torchvision: 0.18.0
+      torchaudio: 2.3.0
+    version: 2.3.0
+    platform: rocm6.0
+rocm6.1:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.1
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: rocm6.1
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.1
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: rocm6.1
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.1
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: rocm6.1
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.1
+    packages:
+      torch: 2.4.1
+      torchvision: 0.19.1
+      torchaudio: 2.4.1
+    version: 2.4.1
+    platform: rocm6.1
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.1
+    packages:
+      torch: 2.4.0
+      torchvision: 0.19.0
+      torchaudio: 2.4.0
+    version: 2.4.0
+    platform: rocm6.1
+rocm6.2:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.2.4
+    packages:
+      torch: 2.6.0
+      torchvision: 0.21.0
+      torchaudio: 2.6.0
+    version: 2.6.0
+    platform: rocm6.2
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.2
+    packages:
+      torch: 2.5.1
+      torchvision: 0.20.1
+      torchaudio: 2.5.1
+    version: 2.5.1
+    platform: rocm6.2
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.2
+    packages:
+      torch: 2.5.0
+      torchvision: 0.20.0
+      torchaudio: 2.5.0
+    version: 2.5.0
+    platform: rocm6.2
+rocm6.2.4: {}
+rocm6.3:
+  pip:
+  - installer: pip
+    flags:
+    - --index-url
+    - https://download.pytorch.org/whl/rocm6.3
+    packages:
+      torch: 2.7.0
+      torchvision: 0.22.0
+      torchaudio: 2.7.0
+    version: 2.7.0
+    platform: rocm6.3

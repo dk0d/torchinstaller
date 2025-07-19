@@ -1,6 +1,7 @@
 from pathlib import Path
 from rich import print
 import tomlkit
+import yaml
 import subprocess
 import re
 
@@ -199,15 +200,38 @@ def remove_none(d):
     return d
 
 
-def loadConfig(path: Path) -> dict:
+def _loadTomlConfig(path: Path) -> dict | None:
     try:
+        print(f"[blue]Loading config from {path}[/blue]")
         with path.open("r") as fp:
             cfg = tomlkit.load(fp)
-            # print(cfg)
         return cfg.unwrap()
     except Exception:
         print("[red bold]Commands configuration not found, package installation error")
-        exit(1)
+
+
+def _loadYamlConfig(path: Path) -> dict | None:
+    try:
+        with path.open("r") as fp:
+            cfg = yaml.safe_load(fp)
+            return cfg
+    except Exception:
+        print("[red bold]Commands configuration not found, package installation error")
+
+
+def loadConfig(path: Path) -> dict:
+    config = None
+
+    if path.suffix in [".yaml", ".yml"]:
+        config = _loadYamlConfig(path)
+
+    if config is None:
+        config = _loadTomlConfig(path.with_suffix(".toml"))
+
+    if config is None:
+        return dict()
+
+    return config
 
 
 def closestLatestVersion(cudaVersion, availableVersions):
@@ -233,7 +257,7 @@ def getCudaVersion(availableVersions):
         cudaVersions = list(filter(lambda v: "cu" in v, availableVersions))
         if version is not None:
             try:
-                cuVersion = f'cu{version.group(1).replace(".", "")}'
+                cuVersion = f"cu{version.group(1).replace('.', '')}"
                 closest = closestLatestVersion(cuVersion, cudaVersions)
                 return closest, cuVersion
             except Exception:
@@ -284,7 +308,7 @@ def run(args, install):
     if not install:
         print(f"[blue bold]\n\\[Dry Run][/blue bold]\n{' '.join(args)}\n")
     else:
-        print(f'[green bold]\n\\[Running][/green bold]\n{" ".join(args)}\n')
+        print(f"[green bold]\n\\[Running][/green bold]\n{' '.join(args)}\n")
         subprocess.run(args)
 
 
