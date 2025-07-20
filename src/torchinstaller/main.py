@@ -19,19 +19,37 @@ from torchinstaller.utils import (
 )
 
 
-app = Typer()
-state = {"configPath": Path(__file__).parent / "config" / "commands.yaml", "config": None}
-
-
-@app.callback()
-def config():
-    state["config"] = loadConfig(state["configPath"])
-
-
 class PackageManager(str, Enum):
     pip = "pip"
     conda = "conda"
     mamba = "mamba"
+
+
+app = Typer()
+state = {"configPath": Path(__file__).parent / "config" / "commands.yaml", "config": None}
+
+
+def parse_platform(value: str) -> str:
+    cfg = loadConfig(state["configPath"])
+    platforms = availableCudaVersions(cfg)
+    if value not in platforms:
+        raise typer.BadParameter(f"Invalid platform '{value}', must be one of: {', '.join(platforms)}")
+    return value
+
+
+@app.callback()
+def shared():
+    state["config"] = loadConfig(state["configPath"])
+
+
+@app.command()
+def platforms():
+    """List available compute platforms"""
+    cfg = loadConfig(state["configPath"])
+    platforms = availableCudaVersions(cfg)
+    print("[bold green]Available Compute Platforms:")
+    for p in platforms:
+        print(f" - [blue]{p}")
 
 
 @app.command()
@@ -82,6 +100,7 @@ def install(
             help=(
                 "Manually specify platform version (cuda or rocm) instead of auto-detect (useful for cluster installations)."
             ),
+            parser=parse_platform,
         ),
     ] = None,
     use: Annotated[
@@ -117,6 +136,8 @@ def install(
         command_key = "pip"
     else:
         raise NotImplementedError("Unsupported installer")
+
+    config = state["config"]
 
     getPythonVersion()
     system_platform = getSystemPlatform()

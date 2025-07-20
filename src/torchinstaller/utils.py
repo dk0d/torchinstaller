@@ -327,6 +327,8 @@ def getPlatforms(config):
 
 
 def availableCudaVersions(config):
+    if isinstance(config, Path):
+        config = loadConfig(config)
     versions = [p for p in getPlatforms(config) if p not in ["cpu", "macos"]]
     versions.sort()
     return versions

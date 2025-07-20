@@ -5,7 +5,7 @@ authors = [
     { name = "Daniel Capecci", email = "7775585+dk0d@users.noreply.github.com" },
 ]
 dependencies = ["tomlkit<1.0.0,>=0.11.7", "rich<14.0.0,>=13.3.3", "typer"]
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<4.0"
 readme = "README.md"
 license = { text = "MIT" }
 dynamic = ['version']
@@ -22,6 +22,8 @@ sync = ["beautifulsoup4", 'unmarkd', 'requests']
 
 [tool.ruff]
 line-length = 120
+
+[tool.uv]
 
 [tool.hatch.version]
 source = 'regex_commit'
