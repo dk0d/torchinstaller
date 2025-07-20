@@ -4,8 +4,15 @@ from torchinstaller._soup import get_latest_version
 from torchinstaller._parse import sync_commands
 
 
+def test_parse_config_toml():
+    config_dir = "./src/torchinstaller/config/commands.toml"
+    config = loadConfig(Path(config_dir))
+    cVersions = availableCudaVersions(config)
+    assert config is not None
+
+
 def test_parse_config():
-    config_dir = "./torchinstaller/config/commands.toml"
+    config_dir = "./src/torchinstaller/config/commands.yaml"
     config = loadConfig(Path(config_dir))
     cVersions = availableCudaVersions(config)
     assert config is not None
@@ -22,7 +29,7 @@ def test_get_latest():
 
 
 def test_build_commands():
-    config = loadConfig(Path("./torchinstaller/config/commands.toml"))
+    config = loadConfig(Path("./src/torchinstaller/config/commands.yaml"))
     for command_key in ["pip", "conda", "mamba"]:
         print(command_key)
         for platform in availableCudaVersions(config):
